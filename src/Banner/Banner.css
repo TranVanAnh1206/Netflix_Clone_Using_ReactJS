@@ -1,0 +1,77 @@
+h2, h1 {
+    margin: 5px 0;
+}
+
+.banner {
+    position: relative;
+    color: #fff;
+    height: 95vh;
+    object-fit: contain;
+    user-select: none;
+}
+
+.banner__gradient {
+    position: absolute;
+    background: linear-gradient(180deg, transparent, #111);
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+}
+
+.banner__contents {
+    position: absolute;
+    bottom: 20%;
+    left: 60px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.banner__series--film,
+.banner__film--name {
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.banner__film--desc{
+    font-weight: 400;
+    font-size: 17px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.play__btn,
+.info__btn {
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-right: 20px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+}
+
+.play__btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;    
+}
+
+.info__btn:hover {
+    background-color: rgba(109, 109, 110, 0.5);
+    cursor: pointer;  
+}
+
+.text--btn:hover {
+    opacity: 1;
+}
+
+.info__btn {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+}

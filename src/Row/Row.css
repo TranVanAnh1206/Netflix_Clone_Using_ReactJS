@@ -1,0 +1,169 @@
+.row {
+    position: relative;
+    color: #fff;
+    margin: 45px 30px 0;
+}
+
+.row__movies {
+    position: relative;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    transition: 0.3s ease-in;
+}
+
+.row__movies::-webkit-scrollbar {
+    display: none;
+}
+
+.movie__item {
+    position: relative;
+    margin: 0 10px;
+    cursor: pointer;
+    scroll-snap-align: center;
+    
+    /* sử dụng perspective để tạo hiệu ứng 3D khi hover */
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+
+}
+
+.movie__item:hover {
+    /* transform: scale(1.08); */
+    transform: rotateY(-20px) scale(1.08);
+    opacity: 1;
+}
+
+.movie__item.disable {
+    pointer-events: none;
+}
+
+.movie__item:hover .action__box {
+    opacity: 1;
+}
+
+.movie__item:first-child {
+    margin-left: 0;
+}
+
+.movie__item:last-child {
+    margin-right: 0;
+}
+
+.movie__img {
+    display: block;
+    max-height: 200px;
+    object-fit: contain;
+    transition: transform 0.3s;
+    padding: 0 5px;
+}
+
+/* .movie__img:hover {
+    transform: scale(1.08);
+    opacity: 1;
+} */
+
+.movie__name {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.row__posterLarge {
+    max-height: 250px;
+}
+
+/* ================ Action box ============= */
+
+.action__box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.more_info {
+    margin-top: 30px;
+}
+
+.add-to-my-list,
+.play,
+.like,
+.film__info {
+    color: #fff;
+    padding: 6px 9px;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+}
+
+.add-to-my-list:hover,
+.play:hover,
+.like:hover,
+.film__info:hover {
+    color: #ffffff;
+    border-color: #fff;
+}   
+
+.add-to-my-list {
+    margin: 0 10px;
+}
+
+/* Scroll */
+
+.scroll {
+    background-color: #ccc;
+    opacity: 0.5;
+    color: #111;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;    
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.scroll.hide {
+    display: none;
+}
+
+.next__btn {
+    position: absolute;    
+    top: 50%;
+    left: -25px;
+}
+
+.scroll:hover {
+    opacity: 0.8;
+}
+
+.prev__btn {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+}
+
+
+.movie__item.active {
+    transform: translateZ(50px);
+}
+

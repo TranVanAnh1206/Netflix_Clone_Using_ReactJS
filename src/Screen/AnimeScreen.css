@@ -1,0 +1,15 @@
+.AnimeScreen_body {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    padding-top: 100px;
+    font-size: 24px;
+    padding-left: 100px;
+    text-align: center;
+}
+
+.AnimeScreen_body span i {
+    margin: 50px;
+    font-size: 300px;
+}
+

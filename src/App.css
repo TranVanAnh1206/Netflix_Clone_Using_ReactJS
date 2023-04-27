@@ -1,0 +1,33 @@
+html {
+  scroll-behavior: smooth;
+
+}
+
+.app {
+  background-color: #111;
+}
+
+/* route-transition */
+
+.route-transition {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.route-transition-enter {
+  opacity: 0;
+}
+
+.route-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.route-transition-exit {
+  opacity: 1;
+}
+
+.route-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}

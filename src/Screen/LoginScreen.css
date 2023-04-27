@@ -1,0 +1,133 @@
+:root {
+    --netflix-btn-color: #e50914;
+}
+
+.loginScreen {
+    position: relative;
+    height: 100%;
+}
+
+.loginScreen__background {
+    background-image: linear-gradient(0, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1)),url('https://assets.nflxext.com/ffe/siteui/vlv3/61e79073-50cf-4f7b-9a23-73290e6f7dca/5083433d-7046-471a-891a-44a1fb41fe6e/VN-vi-20230410-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    height: 100vh;
+    position: relative;
+    object-fit: contain;
+    background-position: center center;
+    background-repeat: none;
+    background-size: cover;
+    background-color: linear-gradient(0deg, #333, transparent, #333);
+}
+
+.loginScreen__nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+.loginScreen__logo {
+    object-fit: contain;
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 120px;
+}
+
+.netflix__btn {
+    margin-top: 20px;
+    padding: 8px 15px;
+    background-color: var(--netflix-btn-color);
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.netflix__btn:hover {
+    background-color: rgb(222, 65, 73);
+}
+
+.loginScreen__slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFF;
+    width: 80%;
+}
+
+.slogan{
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.slogan2 {
+    font-size: 24px;
+}
+
+.loginScreen__slogan h4 {
+    font-size: 20px;
+}
+
+.enter__Email {
+    height: 50px;
+    padding: 0 10px;
+    border: 0.5px solid #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 40%;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.register__btn {
+    margin-left: 10px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.register__btn span {
+    margin-left: 6px;
+}
+
+.netflix__enjoy {
+    color: #fff;
+    background-color: #000;
+    padding: 100px;
+}
+
+.enjoy__box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.text {
+    position: relative;
+}
+
+.text div{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.text h1 {
+    font-size: 44px;
+}
+
+.text h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.slide img {
+    width: 100%;
+}
