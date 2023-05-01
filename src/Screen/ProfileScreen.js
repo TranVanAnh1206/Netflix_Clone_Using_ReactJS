@@ -61,13 +61,12 @@ function ProfileScreen() {
                                                 <h3 className='package__name'>{produce.name}</h3>
                                                 <h4 className='package__desc'>{produce.desc}</h4>
                                             </div>
-                                            <button className={produce.active ? 'active__btn' : ''}>                                                
-                                                <NavLink
-                                                    onClick={produce.active ? () => handleClickNavlink : console.log('clicked')}
-                                                    to='/paymentScreen'>
-                                                        {produce.active ? 'Current package' : 'Subcribe'}
-                                                </NavLink>
-                                            </button>
+                                            <NavLink
+                                                className={produce.active ? 'active__btn' : ''}
+                                                onClick={produce.active ? () => handleClickNavlink : console.log('clicked')}
+                                                to='/paymentScreen'>
+                                                {produce.active ? 'Current package' : 'Subcribe'}
+                                            </NavLink>
                                         </div>
                                     </React.Fragment>
                                 )

@@ -1,0 +1,224 @@
+h3, h1 {
+    margin: 0;
+}
+
+:root {
+    --top: 50px;
+}
+
+.paymentScreen {
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ======== Payment__Screen left ======== */
+
+.payment__left {
+    background-color: #e54226;
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--top);
+    align-items: center;
+    transition: all 0.3s ease-in;
+}
+
+.payment_info--title {
+    display: flex;
+}
+
+.comeback,
+.pay__logo {
+    font-size: 24px;
+    padding: 5px;
+}
+
+.payment_info--title h3 {
+    margin: 0;
+    font-size: 22px;
+    padding: 6px;
+    font-weight: 500;
+}
+
+.payment_info--title .comeback,
+.payment_info--title .pay__logo,
+.payment_info--title h3 {
+    color: #fff;
+}
+
+.payment_info--title h3 span {
+    background-color: #e5c01f;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-left: 6px;
+    color: #8d3323;
+}
+
+.payment_info--title .comeback {
+    cursor: pointer;
+}
+
+.payment_info--title .comeback:hover {
+    color: #5f5f5f;
+}
+
+.payment__package--info {
+    margin-top: 10px;
+    text-align: left;
+    margin-left: 32px;
+}
+
+.payment__package--info h3 {
+    margin-bottom: 5px;
+    font-size: 23px;
+    font-weight: 600;
+    color: #d6d6d6;
+    letter-spacing: 1px;
+}
+
+.payment__package--info h1 {
+    color: #fff;
+}
+
+.payment__package--info .package__price {
+    display: flex;
+}
+
+.payment__package--info .package__price h1 {
+    font-size: 39px;
+    font-weight: 600;
+    line-height: 39px;
+}
+
+.payment__package--info .package__price h3 {
+    max-width: 70px;
+    margin-left: 5px;
+    font-size: 18px;
+    line-height: 19px;
+}
+
+
+/* ======== Payment__Screen right ======== */
+.payment__right {
+    padding-top: var(--top);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment__right .form {
+    max-width: 350px;
+    padding: 10px;
+}
+
+.payment__right .form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #010101;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+}
+
+.gpaybtn__wrapper {
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.gg__pay--btn i {
+    padding-right: 5px;
+}
+
+.gpaybtn__wrapper p {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: -8px;
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.form__lable {
+    display: block;
+}
+
+.form__box{
+    margin-top: 15px;
+}
+
+.form__lable {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.input__wrapper .form__input {
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.email__input {
+    margin: 0;
+}
+
+/* Card infomation */
+.card__info--input {
+    border-radius: 5px 5px 0 0;
+}
+
+.card__info--box {
+    width: 100%;
+    display: flex;
+}
+
+.card__info--box .card__date {
+    border-radius: 0 0 0 5px;
+}
+
+.card__info--box .card__cvc {
+    border-radius: 0 0 5px 0;
+}
+
+/* Name on card */
+.email__input,
+.namecard__input {
+    border-radius: 5px;
+}
+
+/* ====== Billing address ========*/
+#billing_address {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0;
+}
+
+.bill__address--input {
+    border-radius: 0 0 5px 5px;
+}
+
+.form__box span {
+    display: inline-block;
+    padding-top: 8px;
+    text-decoration: underline;
+    text-decoration-color: #ccc;
+    cursor: pointer;
+}
+
+/* Btn Subscribe */
+
+.subscribe__btn {
+    margin-top: 30px;
+}
+
+.form p {
+    text-align: center;
+}

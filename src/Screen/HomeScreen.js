@@ -13,7 +13,7 @@ function HomeScreen() {
 
             <Banner />
 
-            #region Row
+            //#region Rows
             <Row
                 title='Netflix original'
                 fetchURL={requests.fetNetflixOriginals}
@@ -73,7 +73,7 @@ function HomeScreen() {
                 fetchURL={requests.fetchDocumentaries}
             // isLargeRow
             />
-            #endregion
+            //#endregion
 
             <Footer />
         </div>

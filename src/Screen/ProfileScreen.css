@@ -81,7 +81,8 @@
     font-size: 14px;
 }
 
-.package button {
+.package a {
+    text-decoration: none;
     display: inline-block;
     margin: 10px 5px;
     border-radius: 5px;
@@ -92,10 +93,10 @@
     letter-spacing: 1px;
     cursor: pointer;
 }
-
-.package button:hover {
+/* 
+.package a:hover {
     border: 3px solid #ccc;
-}
+} */
 
 .package .active__btn {
     background-color: #ccc;

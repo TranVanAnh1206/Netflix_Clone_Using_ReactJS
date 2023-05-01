@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HomeScreen from './Screen/HomeScreen';
 import ProfileScreen from './Screen/ProfileScreen';
 import './App.css';
@@ -12,10 +12,12 @@ import AnimeScreen from './Screen/AnimeScreen';
 import MyListScreen from './Screen/MyListScreen';
 import SearchByNameScreen from './Screen/SearchByNameScreen'
 import PaymentScreen from './Screen/PaymentScreen';
+import NotFoundScreen from './Screen/NotFoundScreen';
 
 
 function App() {
   const user = useSelector(selectUser)
+  const [isOnline, setIsOnline] = useState(navigator.onLine)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -45,6 +47,22 @@ function App() {
     return unsubcribe
   }, [dispatch])
 
+  useEffect( () => {
+    function HandleNetworkChange ()
+    {
+      setIsOnline(navigator.onLine)
+    }
+
+    window.addEventListener('online', HandleNetworkChange)
+    window.addEventListener('offline', HandleNetworkChange)
+
+    return () => {
+      window.removeEventListener('online', HandleNetworkChange)
+      window.removeEventListener('offline', HandleNetworkChange)
+    }
+
+  }, [])
+
   return (
     <div className="app">
       <Router>
@@ -52,13 +70,20 @@ function App() {
           <LoginScreen />
         ) : (
           <Routes>
-            <Route className='route-transition' exact={true} path='/' element={<HomeScreen />}></Route>
-            <Route className='route-transition' path='/profile' element={<ProfileScreen />}></Route>
-            <Route className='route-transition' path='/TVShow' element={<TVShowScreen />}></Route>
-            <Route className='route-transition' path='/Anime' element={<AnimeScreen />}></Route>
-            <Route className='route-transition' path='/MyList' element={<MyListScreen />}></Route>
-            <Route className='route-transition' path='/SearchByName' element={<SearchByNameScreen />}></Route>
-            <Route path='/paymentScreen' element={<PaymentScreen />}></Route>
+            {isOnline ? (
+              <React.Fragment>
+                <Route className='route-transition' exact={true} path='/' element={<HomeScreen />}></Route>
+                <Route className='route-transition' path='/profile' element={<ProfileScreen />}></Route>
+                <Route className='route-transition' path='/TVShow' element={<TVShowScreen />}></Route>
+                <Route className='route-transition' path='/Anime' element={<AnimeScreen />}></Route>
+                <Route className='route-transition' path='/MyList' element={<MyListScreen />}></Route>
+                <Route className='route-transition' path='/SearchByName' element={<SearchByNameScreen />}></Route>
+                <Route path='/paymentScreen' element={<PaymentScreen />}></Route>
+              </React.Fragment>
+            ) : (
+              <Route path='/404-NotFound' element={<NotFoundScreen />}></Route>
+            )}
+            
           </Routes>
 
         )}
