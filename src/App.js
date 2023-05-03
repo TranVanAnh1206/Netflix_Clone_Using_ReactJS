@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import HomeScreen from './Screen/HomeScreen';
-import ProfileScreen from './Screen/ProfileScreen';
 import './App.css';
+
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginScreen from './Screen/LoginScreen';
 import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
-import TVShowScreen from './Screen/TVShowScreen'
-import AnimeScreen from './Screen/AnimeScreen';
-import MyListScreen from './Screen/MyListScreen';
-import SearchByNameScreen from './Screen/SearchByNameScreen'
-import PaymentScreen from './Screen/PaymentScreen';
+
+import HomeScreen from './Screen/HomeScreen/HomeScreen';
+import ProfileScreen from './Screen/ProfileScreen/ProfileScreen';
+import LoginScreen from './Screen/LoginScreen/LoginScreen';
+import TVShowScreen from './Screen/TVShowScreen/TVShowScreen'
+import AnimeScreen from './Screen/AnimeScreen/AnimeScreen';
+import MyListScreen from './Screen/MyListScreen/MyListScreen';
+import SearchByNameScreen from './Screen/SearchByNameScreen/SearchByNameScreen'
+import PaymentScreen from './Screen/PaymentScreen/PaymentScreen';
 import NotFoundScreen from './Screen/NotFoundScreen';
 
 
@@ -22,8 +24,8 @@ function App() {
 
   useEffect(() => {
     /**
-     * basically something called a listener and the reason being
-     * is because it listens to any authenticated state change
+     *  basically something called a listener and the reason being
+     *  is because it listens to any authenticated state change
      *  and what is really clever about firebase is whenever you go
      *  ahead and even if you're logged in and you refesh it will store it to
      *  your local memory so in your browser so basically go ahead and pop it in a 

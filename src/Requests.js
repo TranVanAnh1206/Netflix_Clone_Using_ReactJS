@@ -21,7 +21,9 @@ const requests = {
     fetchTVShowMovies_Humors: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=35`,
     fetchTVShowMovies_Dramas: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=18`,
 
-    fetAnimation_Anime: `https://api.themoviedb.org/3/discover/animation?api_key=${API_KEY}&with_genres=16`
+    fetAnimation_Anime: `https://api.themoviedb.org/3/discover/animation?api_key=${API_KEY}&with_genres=16`,
+
+    fetchAllMovies: `/discover/movie?api_key=${API_KEY}`
 }
 
 export default requests

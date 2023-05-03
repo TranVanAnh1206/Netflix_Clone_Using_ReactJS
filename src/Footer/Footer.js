@@ -4,7 +4,7 @@ import "./Footer.css"
 function Footer() {
 
     return (
-        <section className='footer__contents'>
+        <footer className='footer__contents'>
             <div className='social__box'>
                 <span className='fb'>
                     <i className="fa-brands fa-facebook-f"></i>
@@ -48,7 +48,7 @@ function Footer() {
 
             <p className='footer__service-code'>Mã dịch vụ</p>
             <p className='footer__year-released'>© 1997-2023 Netflix, Inc</p>
-        </section>
+        </footer>
     )
 }
 

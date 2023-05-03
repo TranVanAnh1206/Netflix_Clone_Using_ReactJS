@@ -23,7 +23,7 @@ function Nav() {
     }
 
     return (
-        <div className={`nav ${show ? "nav__black" : "nav__black--gradien"}`}>
+        <nav className={`nav ${show ? "nav__black" : "nav__black--gradien"}`}>
             <div className='nav__contents'>
                 <div className='nav-box'>
                     <img
@@ -78,12 +78,11 @@ function Nav() {
                             onClick={() => { history('/profile') }}
                             src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'
                             alt='Netflix User Avatar'
-                            className='nav__avatar'
-                        />
+                            className='nav__avatar'/>
                     </li>
                 </ul>
             </div>
-        </div>
+        </nav>
     )
 }
 

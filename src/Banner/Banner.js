@@ -6,22 +6,40 @@ import requests from '../Requests.js'
 
 function Banner() {
     const [movie, setMovie] = useState([])
+    const [randomMovieID, setRandomMovieID] = useState()
 
-    useEffect( () => {
-        async function FetchData () {
-            const request = await axios.get(requests.fetchAnimations)
-            setMovie(
-                request.data.results[
-                    Math.floor(Math.random() * request.data.results.length - 1)
-                ]
-            )
-            return request
+    useEffect(() => {
+        async function FetchData() {
+            try {
+                // const request = await axios.get(requests.fetchAnimations)
+                // setMovie(
+                //     request.data.results[
+                //     Math.floor(Math.random() * request.data.results.length - 1)
+                //     ]
+                // )
+
+                
+                const request = await axios.get(requests.fetchAnimations)
+                const randomMovieIndex = Math.floor(Math.random() * request.data.results.length - 1)
+                const randomMovie = request.data.results[randomMovieIndex]
+                setMovie(randomMovie)
+                setRandomMovieID(randomMovie.id)
+
+                return request
+            } catch (error) {
+                throw new Error(error.message)
+            }
         }
 
         FetchData()
     }, [])
 
     // console.log(movie);
+    // console.log(randomMovieID);
+
+    const handlePlayBtn = () => {
+        alert('This feature is development ...')
+    }
 
     return (
         <div className='banner' style={{
@@ -44,7 +62,8 @@ function Banner() {
                     {movie?.overview}
                 </p>
                 <div className='banner__buttons'>
-                    <button className='play__btn'>
+                    <button className='play__btn'
+                        onClick={handlePlayBtn}>
                         <span className='icon'>
                             <i className="fa-solid fa-play"></i>
                         </span>

@@ -37,30 +37,7 @@ function Row({ title, fetchURL, isLargeRow = false }) {
     // const [itemLength, setItemLength] = useState(0)
 
     // console.log(movie_Items_Ref.current);
-
-    // useEffect( () => {
-    //     const items = movie_Items_Ref.current.children
-    //     setItemLength(items.length - 1)
-    // }, [])
-
-    // const handle_Next = () => {
-    //     if (currentIndex + 1 > itemLength)
-    //         setCurrentIndex(0)
-    //     else 
-    //         setCurrentIndex(currentIndex + 1)
-
-    //     Handle_Slider()
-    // }
-
-    // const handle_Prev = () => {
-
-    // }
-
-    // function Handle_Slider () {
-    //     const checkLeft = movie_Items_Ref.current.childNodes[currentIndex].offsetLeft
-    //     console.log(checkLeft);
-    //     row_Films_Ref.current.style.left = -checkLeft + 'px'
-    // }
+   
 
     //#endregion
 
