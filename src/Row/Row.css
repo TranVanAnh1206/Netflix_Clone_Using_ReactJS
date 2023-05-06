@@ -124,7 +124,7 @@
     margin: 0 10px;
 }
 
-/* Scroll */
+/* Scroll Btn */
 
 .scroll {
     background-color: #ccc;
@@ -137,7 +137,7 @@
     width: 60px;
     height: 60px;    
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 5;
     cursor: pointer;
     border-radius: 50%;
 }

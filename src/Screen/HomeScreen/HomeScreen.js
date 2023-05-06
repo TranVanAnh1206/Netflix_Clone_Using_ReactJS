@@ -1,83 +1,63 @@
-import React from "react";
-import "./HomeScreen.css";
-import Nav from "../../Nav/Nav";
-import Banner from "../../Banner/Banner";
-import requests from "../../Requests";
-import Row from "../../Row/Row";
-import Footer from "../../Footer/Footer";
+import React from 'react';
+import './HomeScreen.css';
+import Nav from '../../Nav/Nav';
+import Banner from '../../Banner/Banner';
+import requests from '../../Requests';
+import Row from '../../Row/Row';
+import Footer from '../../Footer/Footer';
 
 function HomeScreen() {
     return (
         <div className="homeScreen">
             <Nav />
-
-            <Banner />
-
+            <Banner fetchURL={requests.fetchAnimations} />
             //#region Rows
+            <Row title="Netflix original" fetchURL={requests.fetNetflixOriginals} isLargeRow />
             <Row
-                title='Netflix original'
-                fetchURL={requests.fetNetflixOriginals}
-                isLargeRow
-            />
-
-            <Row
-                title='Trending now'
+                title="Trending now"
                 fetchURL={requests.fetchTrending}
-            // isLargeRow
+                // isLargeRow
             />
-
             <Row
-                title='Top rated'
+                title="Top rated"
                 fetchURL={requests.fetchTopRated}
-            // isLargeRow
+                // isLargeRow
             />
-
             <Row
-                title='Action movies'
+                title="Action movies"
                 fetchURL={requests.fetchActionMovies}
-            // isLargeRow
+                // isLargeRow
             />
-
             <Row
-                title='Comedy movies'
+                title="Comedy movies"
                 fetchURL={requests.fetchComedyMovies}
-            // isLargeRow
+                // isLargeRow
             />
-
             <Row
-                title='Horror movies'
+                title="Horror movies"
                 fetchURL={requests.fetchHorrorMovies}
-            // isLargeRow
+                // isLargeRow
             />
-
+            <Row title="Animations" fetchURL={requests.fetchAnimations} isLargeRow />
             <Row
-                title='Animations'
-                fetchURL={requests.fetchAnimations}
-                isLargeRow
-            />
-
-            <Row
-                title='Science Fictions'
+                title="Science Fictions"
                 fetchURL={requests.fetchScienceFictions}
-            // isLargeRow
+                // isLargeRow
             />
-
             <Row
-                title='Romance movies'
+                title="Romance movies"
                 fetchURL={requests.fetchRomanceMovies}
-            // isLargeRow
+                // isLargeRow
             />
-
             <Row
-                title='Documentaries'
+                title="Documentaries"
                 fetchURL={requests.fetchDocumentaries}
-            // isLargeRow
+                // isLargeRow
             />
             //#endregion
-
             <Footer />
         </div>
-    )
+    );
 }
 
-export default HomeScreen
+export default HomeScreen;

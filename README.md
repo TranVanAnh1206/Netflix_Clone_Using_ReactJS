@@ -44,3 +44,70 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Đây là một dự án đầu tay của tôi khi học reactJS
+
+-   web được xấy dựng trên cơ sở sử dụng ReactJS, và các thư viện như
+    react-router, react-router-dom, ...
+-   Các bộ phim được lấy thông tin từ API TMDB, sử dụng axios
+-   sử dụng firebase để deploy dự án
+
+### Do đây là dự án đầu tay nên không khỏi sai sót, tôi sẽ cố gắng khắc phục dần cũng như bổ sung thêm các kiến thức cần thiết
+
+### How to deploy project with firebase
+
+B1: Khởi chạy terminal và trỏ đến thư mục dự án cần deploy
+B2: Gõ lệnh `npx firebase login` nếu chưa đăng nhập vào firebase
+B3: Gõ tiếp `npx firebase init` để vào giao diện chọn chức năng
+B4: Chọn /Hosting: Configure files for Firebase Hosting and (optionally) set up
+GitHub Action deploys/
+B5: Chọn build -> chọn Y -> nó hỏi có muốn deploy với github không -> chọn n
+B6: Gõ `npm run build`
+B7: Gõ `npx firebase deploy`
+Nó sẽ trả về hoiting URL. đó là đường link dự án đã deploy
+
+**Note: cần phải cài đặt firebase vào trong thư mục dự án của minh: `npm i firebase --save` để cài đặt!**
+
+### Để tạo một dự án reactJS với redux
+
+Gõ `npx create-react-app ten_du_an --template redux`
+chuyển đên file vừa tạo `cd ten_du_an`
+chạy dự án `npm start`
+
+**_Node: Nếu như khi chạy lệnh `npm start`, nó sẽ chạy ở port 3000 ta có thể dổi thành cổng khác_**
+vào file dự án, mở bằng vscode
+thêm 1 file mới đặt tên là env.local
+thêm 1 dòng mới là 'PORT=3001'
+chạy lại dự án
+
+### Định cấu hình cho Pretty
+
+# Tạo file `.vscode/setting.json` và dán dòng lệnh
+
+{
+// Định cấu hình cho extention Pretty
+"editor.formatOnSave": true,
+"editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+
+# đứng ở thư mục `/root` tạo file `.prettierrc` và dán dòng lệnh
+
+{
+"arrowParens": "always",
+"bracketSameLine": false,
+"bracketSpacing": true,
+"embeddedLanguageFormatting": "auto",
+"htmlWhitespaceSensitivity": "css",
+"insertPragma": false,
+"jsxSingleQuote": false,
+"printWidth": 120,
+"proseWrap": "preserve",
+"quoteProps": "as-needed",
+"requirePragma": false,
+"semi": true,
+"singleQuote": true,
+"tabWidth": 4,
+"trailingComma": "all",
+"useTabs": false,
+"vueIndentScriptAndStyle": false
+}

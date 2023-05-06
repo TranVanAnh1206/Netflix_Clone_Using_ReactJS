@@ -9,7 +9,7 @@ ul {
     width: 100%;
     height: 60px;
     padding: 10px;
-    z-index: 100;
+    z-index: 10;
 
     transition: all 0.3s ease-in;
 }
@@ -103,6 +103,8 @@ a.active {
     text-decoration: underline;
 }
 
+/* Hộp Thông báo */
+
 .notification {
     cursor: pointer;
     padding: 0 5px;
@@ -124,27 +126,26 @@ a.active {
     text-align: center;
     color: #fff;
     border-top: 3px solid #fff;
+    opacity: 0.9;
     width: 400px;
-    min-height: 150px;
-    height: 100%;
+    max-height: 300px;
     z-index: 100;
     will-change: opacity, transform;
-    /* -webkit-animation: ; */
     top: 120%;
     right: 7%;
-    padding: 0 10px;
     border-radius: 10px;
     transition: all 0.3s ease-in;
     display: none;
+
 }
 
 .notificaion__list::before {
     position: absolute;
     content: '';
-    border-width: 10px 10px;
+    border-width: 11px 25px;
     border-style: solid;
     border-color: transparent transparent #fff transparent;
-    top: -19px;
+    top: -23px;
     right: 17px;
 }
 
@@ -164,21 +165,58 @@ a.active {
     font-size: 18px;
     font-weight: 400;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
-    padding-left: 5px;
+    padding: 10px 15px;
 
 }
 
 .notificaion__list--body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    padding-bottom: 20px;
+    overflow-y: auto;
 }
 
 .notificaion__list--body h3 {
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+/* Notification item box */
+.notif__item {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 15px;
+    border-bottom: 1px solid #ccc;
+}
+.notif__item:hover {
+    opacity: 1;
+    background-color: #111;
+}
+
+.notif__item:hover h3{
+    color: #fff;
+}
+
+.notif__item--img {
+    width: 120px;
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.notif__item--text {
+    text-align: left;
+}
+
+.notif__item--text h3{
+    font-size: 15px;
+    color: #dfdfdf;
+}
+
+.notif__item--text p{
+    font-size: 13px;
+    color: #9e9898;
 }
 
 

@@ -13,7 +13,7 @@ function AnimeScreen() {
 
         <div className='AnimeScreen_body'>
           <span>Hiện chưa có danh bất kì danh sách phim hoạt hình nào</span>
-          <span><i class="fa-solid fa-face-sad-tear"></i></span>
+          <span><i className="fa-solid fa-face-sad-tear"></i></span>
         </div>
 
         <Footer />

@@ -4,6 +4,7 @@ import './Row.css'
 
 function Row({ title, fetchURL, isLargeRow = false }) {
     const [movies, setMovies] = useState([])
+    const [myList, setMyList] = useState([])
     
     const base_Url = 'https://image.tmdb.org/t/p/original/'
    
@@ -20,26 +21,16 @@ function Row({ title, fetchURL, isLargeRow = false }) {
         }
         fetchData()
     }, [fetchURL])
-    
-    // console.log(movies);
-    //#endregion
-    
-    //#region Xử lý cuộn khi bấm vào nút next or prev
-    /**
-     * đoạn code sau tương đương với việc khai báo sau
-     * const list = document.querySelector('.list')
-     * const items = document.querySelectorAll('.item')
-    */
-    // const row_Films_Ref = useRef(null)
-    // const movie_Items_Ref = useRef(null)
-    
-    // const [currentIndex, setCurrentIndex] = useState(0)
-    // const [itemLength, setItemLength] = useState(0)
 
-    // console.log(movie_Items_Ref.current);
-   
 
-    //#endregion
+    //  Xử lý khi bấm 
+    const HandleStorage = (movie) => {
+        const updateFavoriteList = [...myList, movie]
+        setMyList(updateFavoriteList)
+        localStorage.setItem("MyFavoriteList", JSON.stringify(updateFavoriteList))
+        console.log(myList);
+
+    }
 
 
     return (
@@ -48,7 +39,11 @@ function Row({ title, fetchURL, isLargeRow = false }) {
 
             <div className='row__movies'>
                 {movies.map(movie =>
-                    ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) &&
+                    (
+                        (isLargeRow && movie.poster_path) || 
+                        (!isLargeRow && movie.backdrop_path)
+                    ) 
+                    &&
                     (
                         <div key={movie.id} className={`movie__item`} >
                             <img className={`movie__img ${isLargeRow && "row__posterLarge"}`}
@@ -61,7 +56,8 @@ function Row({ title, fetchURL, isLargeRow = false }) {
                                     <span className='play'>
                                         <i className="fa-solid fa-play"></i>
                                     </span>
-                                    <span className='add-to-my-list'>
+                                    <span className='add-to-my-list'
+                                        onClick={() => HandleStorage(movie)}>
                                         <i className="fa-solid fa-plus"></i>
                                     </span>
                                     <span className='like'>
@@ -75,14 +71,6 @@ function Row({ title, fetchURL, isLargeRow = false }) {
 
                 )}
 
-            </div>
-
-            <div className='next__btn scroll'>
-                <i className="fa-solid fa-chevron-left"></i>
-            </div>
-
-            <div className='prev__btn scroll'>
-                <i className="fa-solid fa-chevron-right"></i>
             </div>
 
         </div>

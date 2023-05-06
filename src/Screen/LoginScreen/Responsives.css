@@ -1,0 +1,38 @@
+
+@media (max-width: 768px) {
+      .loginScreen {
+            max-height: 100vh;
+      }
+      .slogan {
+            font-size: 30px;
+            font-weight: 600;
+            padding-bottom: 10px;
+      }
+
+      .loginScreen__slogan h4,
+      .slogan2 {
+            font-size: 18px;
+            font-weight: 400;
+      }
+
+      .slogan2 {
+            padding-bottom: 14px;
+      }
+
+      .register__box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+      }
+
+      .register__box .enter__Email {
+            width: 100%;
+            margin-top: 15px;
+      }
+
+      .register__box .register__btn {
+            width: 50%;
+            text-align: center;
+      }
+}

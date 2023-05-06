@@ -45,8 +45,8 @@ function SignInScreen() {
     return (
         <form className='signInScreen'>
             <h1 className='signInForm__title'>Sign In</h1>
-            <input ref={emailRef} className='email__input' type='email || phone' placeholder='Email or phone number'></input>
-            <input ref={passwordRef} className='password__input' type={inputType} placeholder='password'></input>
+            <input ref={emailRef} className='singin__email--input' type='email || phone' placeholder='Email or phone number'></input>
+            <input ref={passwordRef} className='singin__password--input' type={inputType} placeholder='password'></input>
             <div className='showPass__box'>
                 <input checked={checked} 
                         onChange={handleShow} 

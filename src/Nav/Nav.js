@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Nav.css"
+import './Responsive.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 function Nav() {
@@ -35,7 +36,7 @@ function Nav() {
 
                     <ul className='nav__list'>
                         <li className='nav__list--item'>
-                            <NavLink onClick={handleClick} exact to='/' active>Trang chủ</NavLink>
+                            <NavLink onClick={handleClick} exact="true" to='/' active="true">Trang chủ</NavLink>
                         </li>
 
                         <li className='nav__list--item'>
@@ -58,10 +59,16 @@ function Nav() {
                 </div>
 
                 <ul className='nav__user--box'>
+
+                    {/* Search */}
                     <li className='search'>
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </li>
+
+                    {/* Trẻ em */}
                     <li className='for__kid'>Trẻ em</li>
+
+                    {/* Notification */}
                     <li className='notification'>
                         <div className='notify__icon'>
                             <i className="fa-solid fa-bell"></i>
@@ -69,10 +76,33 @@ function Nav() {
                         <div className='notificaion__list'>
                             <h3 className='notify__list--title'>Thông báo</h3>
                             <div className='notificaion__list--body'>
-                                <h3>Hiện chưa có thông báo nào</h3>
+                                {/* <h3>Hiện chưa có thông báo nào</h3> */}
+                                <div className='notif__item'>
+                                    <img className='notif__item--img' 
+                                        src='https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg' 
+                                        alt='Hình ảnh thông báo bộ phim sắp chiếu'/>
+                                    <div className='notif__item--text'>
+                                        <h3>Ra mắt vào mùng 4 tháng 5</h3>
+                                        <h3>Phát trailer</h3>
+                                        <p>Hôm nay</p>
+                                    </div>
+                                </div>
+
+                                <div className='notif__item'>
+                                    <img className='notif__item--img' 
+                                        src='https://raw.githubusercontent.com/thatanjan/netflix-clone-yt/youtube/media//banner.jpg' 
+                                        alt='Hình ảnh thông báo bộ phim sắp chiếu'/>
+                                    <div className='notif__item--text'>
+                                        <h3>Ra mắt vào mùng 4 tháng 5</h3>
+                                        <h3>Phát trailer</h3>
+                                        <p>Hôm nay</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </li>
+
+                    {/* User */}
                     <li>
                         <img
                             onClick={() => { history('/profile') }}

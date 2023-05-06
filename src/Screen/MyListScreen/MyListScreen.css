@@ -1,0 +1,9 @@
+.myListScreen__body {
+    color: #fff;
+}
+
+.my__row--grid {
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}

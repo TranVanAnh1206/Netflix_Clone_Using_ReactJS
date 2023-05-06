@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './LoginScreen.css'
+import './Responsives.css'
 import SignInScreen from '../SignInScreen/SignInScreen'
 
 function LoginScreen() {
     const [signIn, setSignIn] = useState(false)
 
     // useNavigate() một phương thức của react-router-dom
-    // giúp giải quyết vấn đề khi đăng xuất rồi lại đăng nhập
+    // giúp giải quyết vấn đề khi đăng xuất rồi lại đăng nhập mới
     // vẫn hiển thị trang màn hình đăng xuất thay vì màn hình trang chủ
     const history =  useNavigate()
 

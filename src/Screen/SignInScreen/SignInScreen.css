@@ -17,14 +17,25 @@
     margin-bottom: 45px;
 }
 
-.email__input,
-.password__input {
+.singin__email--input,
+.singin__password--input {
+    display: block;
     margin: 10px 0;
     height: 30px;
-    padding: 5px 10px;
+    padding: 17px 15px;
     font-size: 20px;
     border: none;
     outline: none;
+    border-radius: 5px;
+
+}
+
+.singin__email--input {
+    margin-bottom: 10px;
+}
+
+.singin__password--input {
+    border-radius: 5px;
 }
 
 .show__password {
@@ -63,5 +74,5 @@
     width: 17px;
     height: 17px;
     transform: translateY(13%);
-    margin: 0 5px 0 0 ;
+    margin: 8px 5px 0 0 ;
 }

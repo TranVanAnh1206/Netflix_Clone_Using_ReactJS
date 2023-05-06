@@ -1,3 +1,5 @@
 {
-      "editor.tabSize": 6
+    // Định cấu hình cho extention Pretty
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
