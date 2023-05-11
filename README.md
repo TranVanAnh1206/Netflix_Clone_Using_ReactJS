@@ -80,19 +80,22 @@ thêm 1 file mới đặt tên là env.local
 thêm 1 dòng mới là 'PORT=3001'
 chạy lại dự án
 
-### Định cấu hình cho Pretty
+## Định cấu hình cho Pretty
 
 ### Tạo file `.vscode/setting.json` và dán dòng lệnh
 
-````{
+```
+{
 // Định cấu hình cho extention Pretty
 "editor.formatOnSave": true,
 "editor.defaultFormatter": "esbenp.prettier-vscode"
-}```
+}
+```
 
 ### đứng ở thư mục `/root` tạo file `.prettierrc` và dán dòng lệnh
 
-```{
+```
+{
 "arrowParens": "always",
 "bracketSameLine": false,
 "bracketSpacing": true,
@@ -110,5 +113,5 @@ chạy lại dự án
 "trailingComma": "all",
 "useTabs": false,
 "vueIndentScriptAndStyle": false
-}```
-````
+}
+```

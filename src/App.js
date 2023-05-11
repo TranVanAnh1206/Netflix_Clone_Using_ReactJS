@@ -13,7 +13,8 @@ import AnimeScreen from './Screen/AnimeScreen/AnimeScreen';
 import MyListScreen from './Screen/MyListScreen/MyListScreen';
 import SearchByNameScreen from './Screen/SearchByNameScreen/SearchByNameScreen';
 import PaymentScreen from './Screen/PaymentScreen/PaymentScreen';
-import NotFoundScreen from './Screen/NotFoundScreen';
+import NotFoundScreen from './Screen/Error404Screen/NotFoundScreen';
+import AccountScreen from './Screen/ProfileScreen/AccountScreen';
 
 function App() {
     const user = useSelector(selectUser);
@@ -61,33 +62,51 @@ function App() {
         };
     }, []);
 
+    // return (
+    //     <Router>
+    //       <Route
+    //         render={({ location }) => (
+    //           <TransitionGroup>
+    //             <CSSTransition key={location.key} classNames="slide" timeout={300}>
+    //               <Switch location={location}>
+    //                 <Route exact path="/" component={Home} />
+    //                 <Route path="/about" component={About} />
+    //                 <Route path="/contact" component={Contact} />
+    //               </Switch>
+    //             </CSSTransition>
+    //           </TransitionGroup>
+    //         )}
+    //       />
+    //     </Router>
+    //   );
+
     return (
         <div className="app">
-            <Router>
-                {!user ? (
-                    <LoginScreen />
-                ) : (
-                    <Routes>
-                        {isOnline ? (
+            {!isOnline ? (
+                <NotFoundScreen />
+            ) : (
+                <Router>
+                    {!user ? (
+                        <LoginScreen />
+                    ) : (
+                        <Routes>
                             <React.Fragment>
                                 <Route exact="true" path="/" element={<HomeScreen />}></Route>
-                                <Route path="/profile" element={<ProfileScreen />}></Route>
+                                <Route path="/your-Account" element={<AccountScreen />}></Route>
                                 <Route path="/TVShow" element={<TVShowScreen />}></Route>
                                 <Route path="/Anime" element={<AnimeScreen />}></Route>
                                 <Route path="/MyList" element={<MyListScreen />}></Route>
                                 <Route path="/SearchByName" element={<SearchByNameScreen />}></Route>
                                 <Route path="/paymentScreen" element={<PaymentScreen />}></Route>
                             </React.Fragment>
-                        ) : (
-                            <Route path="/404-NotFound" element={<NotFoundScreen />}></Route>
-                        )}
-                    </Routes>
-                )}
-            </Router>
+                        </Routes>
+                    )}
+                </Router>
+            )}
 
-            <div className="overlay">
+            {/* <div className="overlay">
                 <div className="movie__info--wrapper"></div>
-            </div>
+            </div> */}
         </div>
     );
 }

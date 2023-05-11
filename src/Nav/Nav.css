@@ -42,7 +42,6 @@ ul {
     cursor: pointer;
 }
 
-
 .nav__list {
     list-style: none;
     margin-left: 20px;
@@ -66,6 +65,24 @@ ul {
     color: #9e9898;
 }
 
+.navlink {
+    color: #b2b1b1;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+.navlink:hover {
+    text-decoration: underline;
+    transition: all 0.3s ease-in;
+}
+
+.navlink.active {
+    color: var(--netflix-btn-color);
+    text-decoration: underline;
+}
+
+/* User box */
+
 .nav__user--box {
     display: flex;
     justify-content: space-between;
@@ -77,42 +94,15 @@ ul {
     margin: 0 20px;
 }
 
-.nav__avatar {
-    border-radius: 10px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    margin-right: 40px;
-    margin-left: 20px;
-}
-
-a {
-    color: #b2b1b1;
-    text-decoration: none;
-    transition: all 0.3s ease-in;
-}
-
-a:hover {
-    text-decoration: underline;
-    transition: all 0.3s ease-in;
-}
-
-a.active {
-    color: var(--netflix-btn-color);
-    text-decoration: underline;
-}
-
-/* Hộp Thông báo */
+/* Notification */
 
 .notification {
+    position: relative;
     cursor: pointer;
     padding: 0 5px;
-    
 }
 
-.notification:hover .notificaion__list 
-{
+.notification:hover .notificaion__list {
     display: block;
 }
 
@@ -129,20 +119,20 @@ a.active {
     opacity: 0.9;
     width: 400px;
     max-height: 300px;
-    z-index: 100;
-    will-change: opacity, transform;
-    top: 120%;
-    right: 7%;
+    top: 200%;
+    right: -20px;
     border-radius: 10px;
-    transition: all 0.3s ease-in;
     display: none;
-
+    transition: all 0.3s linear;
+    transform-origin: calc(100% - 32px) top;
+    -webkit-animation: animation 0.3s ease;
+    will-change: opacity, transform;
 }
 
 .notificaion__list::before {
     position: absolute;
     content: '';
-    border-width: 11px 25px;
+    border-width: 11px 15px;
     border-style: solid;
     border-color: transparent transparent #fff transparent;
     top: -23px;
@@ -166,7 +156,6 @@ a.active {
     font-weight: 400;
     border-bottom: 1px solid #ccc;
     padding: 10px 15px;
-
 }
 
 .notificaion__list--body {
@@ -194,7 +183,7 @@ a.active {
     background-color: #111;
 }
 
-.notif__item:hover h3{
+.notif__item:hover h3 {
     color: #fff;
 }
 
@@ -209,14 +198,128 @@ a.active {
     text-align: left;
 }
 
-.notif__item--text h3{
+.notif__item--text h3 {
     font-size: 15px;
     color: #dfdfdf;
 }
 
-.notif__item--text p{
+.notif__item--text p {
     font-size: 13px;
     color: #9e9898;
 }
 
+/* account user */
 
+.account-menu-item {
+    position: relative;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.account-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.nav__avatar {
+    border-radius: 10px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.account-dropdown span {
+    margin-left: 10px;
+}
+
+.account-menu-item i {
+    transition: transform 0.3s ease;
+}
+
+.account-menu-item:hover .rotate-icon {
+    transform: rotate(180deg);
+}
+
+.account-menu-item:hover .subnav-account-menu {
+    display: block;
+}
+
+.subnav-account-menu {
+    position: absolute;
+    background-color: #111;
+    opacity: 0.95;
+    font-size: 16px;
+    width: 245px;
+    top: 140%;
+    right: 0;
+    padding: 20px;
+    border-radius: 3px;
+    display: none;
+    transition: all 0.3s linear;
+    transform-origin: calc(100% - 32px) top;
+    -webkit-animation: animation 0.3s ease;
+    will-change: opacity, transform;
+}
+
+@keyframes animation {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.subnav-account-menu::after {
+    content: '';
+    border-width: 20px 50px;
+    border-style: solid;
+    border-color: transparent transparent transparent transparent;
+    position: absolute;
+    top: -18px;
+    right: 0;
+}
+
+.subnav-account-menu::before {
+    content: '';
+    border-width: 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    top: -19px;
+    right: 30px;
+}
+
+.subnav-account-menu span {
+    width: 35px;
+    padding-right: 20px;
+    color: #b2b1b1;
+}
+
+.subnav-account-menu .menu-item {
+    display: flex;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.subnav-account-menu .logout-netflix {
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding: 15px 20px 5px;
+    margin-top: 10px;
+}
+
+.li-hover {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+}
+
+.li-hover:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

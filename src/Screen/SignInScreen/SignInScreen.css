@@ -17,24 +17,25 @@
     margin-bottom: 45px;
 }
 
-.singin__email--input,
-.singin__password--input {
+#singin__email--input,
+#singin__password--input {
     display: block;
     margin: 10px 0;
     height: 30px;
     padding: 17px 15px;
     font-size: 20px;
-    border: none;
+    border: 1px solid #ccc;
+    color: #fff;
     outline: none;
     border-radius: 5px;
-
+    background-color: transparent;
 }
 
-.singin__email--input {
+#singin__email--input {
     margin-bottom: 10px;
 }
 
-.singin__password--input {
+#singin__password--input {
     border-radius: 5px;
 }
 
@@ -66,13 +67,58 @@
 }
 
 .showPass__box {
+    cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.showPassword {
+#showPassword {
     width: 17px;
     height: 17px;
     transform: translateY(13%);
-    margin: 8px 5px 0 0 ;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+/* Xử lý animation input */
+
+.signIn-box {
+    position: relative;
+    margin: 6px 0;
+}
+
+.signIn__label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    user-select: text;
+    font-size: 16px;
+    color: #ccc;
+    transition: all 0.2s linear;
+}
+
+.input-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 5px;
+    transition: all o.2s linear;
+}
+
+/* .signIn-box input:focus ~ .signIn__label,
+.signIn-box input:not(:placeholder-shown) ~ .signIn__label {
+    top: -12px;
+    font-size: 18px;
+    background-color: transparent;
+    padding: 0 3px;
+} */
+
+.signIn-box input:focus + .signIn__label .input-content,
+.signIn-box input:valid + .signIn__label .input-content {
+    transform: translateY(-150%);
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0 10px;
+    font-size: 20px;
 }

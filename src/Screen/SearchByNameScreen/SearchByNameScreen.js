@@ -30,11 +30,27 @@ function SearchByNameScreen() {
             setLoading(false);
             setMovies((prevMovies) => [...prevMovies, ...request.data.results]);
 
-            return request;
+            /**
+             * Trong mã này, câu lệnh return là không cần thiết
+             * vì nó không ảnh hưởng đến hành vi của thành phần.
+             * Nếu một câu lệnh trả về có giá trị được bao gồm,
+             * thì giá trị được trả về sẽ được sử dụng làm hàm dọn dẹp
+             * cho hook useEffect().
+             *
+             * Chức năng dọn dẹp này được sử dụng để hủy mọi
+             * yêu cầu chưa xử lý, xóa mọi đăng ký hoặc thực hiện
+             * bất kỳ hoạt động dọn dẹp nào khác cần thiết để ngăn
+             * rò rỉ bộ nhớ và các sự cố khác. Tuy nhiên, trong mã này,
+             * không có đăng ký đang hoạt động hoặc yêu cầu
+             * đang chờ xử lý nào cần được dọn sạch,
+             * vì vậy câu lệnh return là không cần thiết.
+             */
+
+            // return request;
         }
 
         FetchData();
-    }, [allMovieURL]);
+    }, [allMovieURL, page]);
 
     console.log(movies);
 
@@ -56,6 +72,7 @@ function SearchByNameScreen() {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
 
+        // clearnup func xóa bỏ sự kiện scroll của windown
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -110,9 +127,9 @@ function SearchByNameScreen() {
 
                 <div className="gallery__movies--wrapper">
                     <div className="row-grid">
-                        {movies.map((movie) => {
+                        {movies.map((movie, index) => {
                             return (
-                                <div key={movie.id} className="film__item">
+                                <div key={index} className="film__item">
                                     <img
                                         src={`${img_base_Url}${movie.backdrop_path}`}
                                         alt={`Đây là hình ảnh của bộ phim ${movie.title || movie.name}`}

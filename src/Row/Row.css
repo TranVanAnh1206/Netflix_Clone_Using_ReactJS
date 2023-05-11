@@ -14,31 +14,26 @@
     transition: 0.3s ease-in;
 }
 
-.row__movies::-webkit-scrollbar {
+/* .row__movies::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .movie__item {
     position: relative;
     margin: 0 10px;
     cursor: pointer;
-    scroll-snap-align: center;
-    
+    scroll-snap-align: left;
+
     /* sử dụng perspective để tạo hiệu ứng 3D khi hover */
     perspective: 1000px;
     transform-style: preserve-3d;
-    transition: transform 0.3s;
-
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .movie__item:hover {
-    /* transform: scale(1.08); */
-    transform: rotateY(-20px) scale(1.08);
+    transform: scale(1.08);
     opacity: 1;
-}
-
-.movie__item.disable {
-    pointer-events: none;
+    z-index: 10;
 }
 
 .movie__item:hover .action__box {
@@ -118,7 +113,7 @@
 .film__info:hover {
     color: #ffffff;
     border-color: #fff;
-}   
+}
 
 .add-to-my-list {
     margin: 0 10px;
@@ -135,7 +130,7 @@
     justify-content: center;
     align-items: center;
     width: 60px;
-    height: 60px;    
+    height: 60px;
     transform: translateY(-50%);
     z-index: 5;
     cursor: pointer;
@@ -147,7 +142,7 @@
 }
 
 .next__btn {
-    position: absolute;    
+    position: absolute;
     top: 50%;
     left: -25px;
 }
@@ -162,8 +157,6 @@
     right: -25px;
 }
 
-
 .movie__item.active {
     transform: translateZ(50px);
 }
-

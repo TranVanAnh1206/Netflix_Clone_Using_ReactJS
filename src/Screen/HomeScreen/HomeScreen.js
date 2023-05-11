@@ -11,7 +11,7 @@ function HomeScreen() {
         <div className="homeScreen">
             <Nav />
             <Banner fetchURL={requests.fetchAnimations} />
-            //#region Rows
+
             <Row title="Netflix original" fetchURL={requests.fetNetflixOriginals} isLargeRow />
             <Row
                 title="Trending now"
@@ -54,7 +54,7 @@ function HomeScreen() {
                 fetchURL={requests.fetchDocumentaries}
                 // isLargeRow
             />
-            //#endregion
+
             <Footer />
         </div>
     );
