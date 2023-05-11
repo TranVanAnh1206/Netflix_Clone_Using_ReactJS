@@ -1,8 +1,170 @@
 .accountScreen {
+    /* background-color: #f2f2f2; */
     background-color: #fff;
 }
 
 .account-container {
     width: 1028px;
     margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.account-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.account-title h1 {
+    font-weight: 400;
+    font-size: 34.4px;
+}
+
+.account-section-member-ince {
+    margin-left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.account-section-member-ince p {
+    font-size: 15px;
+    color: #555;
+    font-weight: 700;
+    padding-left: 4px;
+}
+
+svg {
+    position: relative;
+    left: 0;
+    margin: 0;
+}
+
+.ele-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.ele-wrapper h3 {
+    font-size: 22px;
+    color: #737373;
+    font-weight: 400;
+    padding-right: 20px;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+
+.cancel-member-btn {
+    padding: 10px 30px;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: #e6e6e6;
+    background-image: linear-gradient(180deg, #e6e6e6, #ddd);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cancel-member-btn:hover {
+    background: #eaeaea;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ele-section-group-item {
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.maintenance-info {
+    color: #0073e6;
+    font-size: 17px;
+    display: block;
+}
+
+.maintenance-info:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.ele-section-group-item h4 {
+    font-weight: 500;
+}
+
+.ele-section-group-item .acc-password {
+    color: #737373;
+    font-weight: 400;
+}
+
+.acc-payment-info {
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+.package-update-btn {
+    padding: 12px 13px;
+    font-size: 14px;
+    margin: 6.5px 6.5px 6.5px 0;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.package-update-btn:hover {
+    background-color: #ff4f58;
+}
+
+.acc-security {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.acc-security span {
+    padding: 4px 0;
+}
+
+/* Footer */
+.acc-footer {
+    width: 1028px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.acc-footer p {
+    color: #000;
+    cursor: pointer;
+    padding: 3px 0;
+}
+
+.acc-footer button {
+    margin-top: 40px;
+    padding: 8px 14px;
+    background-color: transparent;
+    border: 1px solid #9c9c9c;
+    cursor: pointer;
+}
+
+.acc-footer p:hover {
+    text-decoration: underline;
+}
+
+.acc-footer .contact-us {
+    padding-bottom: 30px;
+}
+
+.footer-contents {
+    display: flex;
+    justify-content: space-between;
 }

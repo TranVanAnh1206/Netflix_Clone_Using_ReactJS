@@ -1,12 +1,16 @@
 import React from 'react';
 import './AccountScreen.css';
+import { useNavigate } from 'react-router-dom';
 
 function AccountScreen() {
+    const history = useNavigate();
+
     return (
         <div className="accountScreen">
             <header className="nav nav__black">
                 <div className="nav__contents">
                     <img
+                        onClick={() => history('/')}
                         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
                         alt="Logo ứng dụng"
                         className="nav__logo"
@@ -15,7 +19,7 @@ function AccountScreen() {
             </header>
 
             <section className="account-container">
-                <div className="account-title">
+                <div className="account-title border-bottom">
                     <h1>Tài Khoản</h1>
                     <div className="account-section-member-ince">
                         <div className="account-section-member-ince--svg">
@@ -26,7 +30,6 @@ function AccountScreen() {
                                 height="26px"
                                 viewBox="0 0 26 26"
                                 version="1.1"
-                                class="mdl-js"
                             >
                                 <title>Artboard</title>
                                 <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -49,47 +52,98 @@ function AccountScreen() {
                                 </g>
                             </svg>
                         </div>
-                        Thành viên từ 10/05/2023
+                        <p>Thành viên từ 10/05/2023</p>
                     </div>
                 </div>
 
-                <div className="ele-wrapper">
+                <div className="ele-wrapper border-bottom">
                     <div>
                         <h3>Tư cách thành viên và tính phí</h3>
-                        <button>Hủy tư cách thành viên</button>
+                        <button className="cancel-member-btn">Hủy tư cách thành viên</button>
                     </div>
 
-                    <div>
-                        <div>
-                            <div>
+                    <div className="ele-section">
+                        <div className="ele-section-group">
+                            <div className="ele-section-group-item">
                                 <h4>anh038953@gmail.com</h4>
-                                <span>Thay đổi email</span>
+                                <span className="maintenance-info">Thay đổi email</span>
                             </div>
-                            <div>
-                                <h4>
+                            <div className="ele-section-group-item">
+                                <h4 className="acc-password">
                                     Mật khẩu: <span>**********</span>
                                 </h4>
-                                <span>Thay đổi email</span>
+                                <span className="maintenance-info">Thay đổi mật khẩu</span>
                             </div>
-                            <div>
+                            <div className="ele-section-group-item">
                                 <h4></h4>
-                                <span>Thêm số điện thoại</span>
+                                <span className="maintenance-info">Thêm số điện thoại</span>
                             </div>
                         </div>
-                        <h4>Không có thông tin thanh toán</h4>
+                        <h4 className="acc-payment-info">Không có thông tin thanh toán</h4>
                     </div>
-
-                    <div></div>
                 </div>
 
-                <div className="ele-wrapper">
+                <div className="ele-wrapper border-bottom">
                     <h3>Thông tin gói dịch vụ</h3>
-                    <div>
+                    <div className="ele-section-group-item">
                         <h4>Miễn phí</h4>
-                        <button>Nâng cấp</button>
+                        <button className="package-update-btn">Nâng cấp</button>
+                    </div>
+                </div>
+
+                <div className="ele-wrapper border-bottom">
+                    <h3>Bảo mật và quyền riêng tư</h3>
+                    <div className="ele-section-group-item">
+                        <h4 style={{ width: '300px' }}>
+                            Kiểm soát các quyền truy cập tài khoản này, xem các thiết bị hoạt động gân đây nhất và hơn
+                            thế nữa.
+                        </h4>
+                        <div className="acc-security">
+                            <span className="maintenance-info">Quản lý quyền truy cập và thiết bị</span>
+                            <span className="maintenance-info">Đăng xuất khỏi tất cả các thiết bị</span>
+                            <span className="maintenance-info">Tải xuống thông tin cá nhân của bạn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="ele-wrapper border-bottom">
+                    <h3>Cài đặt</h3>
+                    <div className="ele-section-group-item">
+                        <div>
+                            <span className="maintenance-info">Tham gia thử nghiệm</span>
+                            <span className="maintenance-info">Quản lý thiết bị tải xuống</span>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <footer className="acc-footer">
+                <p className="contact-us">Bạn có câu hỏi? Liên hệ với chúng tôi.</p>
+                <div className="footer-contents">
+                    <div>
+                        <p>Âm thanh và phụ đề.</p>
+                        <p>Trung tâm da phương tện.</p>
+                        <p>Tuyên bố về quyền riêng tư.</p>
+                    </div>
+
+                    <div>
+                        <p>Trung tâm trợ giúp.</p>
+                        <p>Việc làm.</p>
+                    </div>
+
+                    <div>
+                        <p>Thẻ quà tặng.</p>
+                        <p>Tùy chọn cookie.</p>
+                    </div>
+
+                    <div>
+                        <p>Quan hệ với nhà đầu tư.</p>
+                        <p>Diều khoản sử dụng.</p>
+                    </div>
+                </div>
+
+                <button>Mã dịch vụ</button>
+            </footer>
         </div>
     );
 }

@@ -71,7 +71,16 @@ function Banner({ fetchURL }) {
                             <span className="icon">
                                 <i className="fa-solid fa-circle-info"></i>
                             </span>
-                            <span className="text--btn">Thông tin khác</span>
+                            <span
+                                className="text--btn"
+                                onClick={() =>
+                                    alert(
+                                        'Có cái gì đâu mà cứ đòi xem. Có lẽ tôi chiều các em quá rồi các em hư đúng không.',
+                                    )
+                                }
+                            >
+                                Thông tin khác
+                            </span>
                         </button>
                     </div>
                 </div>
