@@ -1,46 +1,48 @@
 import React, { useRef, useState } from 'react';
+
 import './SignInScreen.css';
-import { auth } from '../../firebase';
+import { signInWithEmail, registerWithEmail } from '../../firebase';
 
 function SignInScreen() {
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
     const [checked, setChecked] = useState(false);
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const phoneRegex = /^[0-9]{10,12}$/;
 
     const handleShow = () => {
         setChecked(!checked);
     };
 
-    // Xử lý sự kiện khi nhấn vào show pass box thì input sex checked
-    const HandleCkecked = () => {
+    // Xử lý sự kiện khi nhấn vào show pass box thì input set checked
+    const HandleChecked = () => {
         const check_showpass = document.querySelector('.showPassword');
         check_showpass.setAttribute('checked', true);
     };
-
     const inputType = checked ? 'text' : 'password';
 
+    // xử lý đăng ký tài khoản
     const Register = (e) => {
         e.preventDefault();
-
-        auth.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-            .then((authUser) => {
-                console.log(authUser);
-            })
-            .catch((error) => {
-                alert(error.message);
-            });
+        registerWithEmail(emailRef.current.value, passwordRef.current.value);
     };
 
+    // xử lý đăng nhập tài khoản
     const SignIn = (e) => {
         e.preventDefault();
 
-        auth.signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-            .then((authUser) => {
-                console.log(authUser);
-            })
-            .catch((error) => {
-                alert(error.message);
-            });
+        // ktra đăng nhập với email
+        if (emailRegex.test(emailRef.current.value)) {
+            console.log('Dây là email');
+            signInWithEmail(emailRef.current.value, passwordRef.current.value);
+            return;
+        } else if (phoneRegex.test(emailRef.current.value)) {
+            // Kiểm tra đăng nhập với SĐT
+            console.log('đây là sdt');
+            return;
+        } else {
+            throw new Error();
+        }
     };
 
     return (
@@ -49,7 +51,16 @@ function SignInScreen() {
 
             {/* Nhập email or số điện thoại */}
             <div className="signIn-box">
-                <input ref={emailRef} id="singin__email--input" type="email || phone" placeholder="email"></input>
+                <input
+                    required
+                    ref={emailRef}
+                    id="singin__email--input"
+                    name="emailOrTel"
+                    type="email || tel"
+                    title="Nhập vào email or số điện thoại."
+                    pattern="[a-z]{4,8}"
+                    placeholder="email and phone number"
+                ></input>
                 {/* <label className="signIn__label" htmlFor="singin__email--input">
                     <span className="input-content">Enter your email.</span>
                 </label> */}
@@ -57,7 +68,15 @@ function SignInScreen() {
 
             {/* Nhập password */}
             <div className="signIn-box">
-                <input ref={passwordRef} id="singin__password--input" type={inputType} placeholder="password"></input>
+                <input
+                    required
+                    ref={passwordRef}
+                    id="singin__password--input"
+                    name="password"
+                    type={inputType}
+                    title="Nhập vào mật khẩu của bạn."
+                    placeholder="password"
+                ></input>
                 {/* <label className="signIn__label" htmlFor="singin__password--input">
                     <span className="input-content">Enter your password.</span>
                 </label> */}
@@ -66,7 +85,7 @@ function SignInScreen() {
             {/* Show password */}
             <div className="showPass__box">
                 <input checked={checked} onChange={handleShow} id="showPassword" name="showPassword" type="checkbox" />
-                <label htmlFor="showPassword" onClick={() => HandleCkecked}>
+                <label htmlFor="showPassword" onClick={() => HandleChecked}>
                     Show password
                 </label>
             </div>

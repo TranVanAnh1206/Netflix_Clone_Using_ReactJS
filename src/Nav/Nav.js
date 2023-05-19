@@ -1,30 +1,76 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import './Nav.css';
 import './Responsive.css';
-import { selectUser } from '../features/userSlice';
+// import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
 
 function Nav() {
     const history = useNavigate(); // thay cho useHistory() ở phiên bản v5
     const [show, handleShow] = useState(true);
-    const user = useSelector(selectUser);
+    // const user = useSelector(selectUser);
+
+    const search_Ref = useRef();
+    const search_box_Ref = useRef();
+    const search_input_Ref = useRef();
+    const search_tab_Ref = useRef();
 
     const transitionNav = () => {
         if (window.scrollY < 200) handleShow(false);
         else handleShow(true);
     };
 
+    /**
+     * xử lý cho windown lắng nghe sự kiện scroll
+     * hàm clearn up func giúp loại bỏ sự kiện khi k còn sử dụng
+     * ngăn rò rỉ bộ nhớ và tránh các lỗi trong đó trình xử lý
+     * sự kiện vẫn hoạt động ngay cả khi thành phần không còn trong DOM.
+     *
+     * Tham số thứ hai cho useEffect, là một mảng trống,
+     * chỉ định rằng hiệu ứng chỉ được chạy một lần (khi gắn kết)
+     * và không được chạy lại trong các lần kết xuất lại tiếp theo.
+     */
     useEffect(() => {
         window.addEventListener('scroll', transitionNav);
+
         return () => window.removeEventListener('scroll', transitionNav);
     }, []);
 
+    // xử lý khi chuyển tab thì sẽ cuộn lên trang đầu
     const handleClick = () => {
         window.scrollTo(0, 0);
     };
+
+    // Xủa lý sự kiện ẩn hiện thanh tìm kiếm
+    const HandleSearch = () => {
+        search_tab_Ref.current.classList.add('search-tab-hide');
+
+        search_box_Ref.current.classList.add('show-search-box');
+
+        search_input_Ref.current.classList.add('action');
+        search_input_Ref.current.focus();
+    };
+
+    // xủa lý sự kiện khi click ra ngoài vùng search thì sẽ loại bỏ classes action
+    const HandleClickOutSide = (e) => {
+        e.stopPropagation();
+        if (search_Ref.current && !search_Ref.current.contains(e.target)) {
+            search_tab_Ref.current.classList.remove('search-tab-hide');
+
+            search_box_Ref.current.classList.remove('show-search-box');
+
+            search_input_Ref.current.classList.remove('action');
+            search_input_Ref.current.value = '';
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', HandleClickOutSide);
+
+        return () => document.removeEventListener('click', HandleClickOutSide);
+    }, []);
 
     return (
         <nav className={`nav ${show ? 'nav__black' : 'nav__black--gradien'}`}>
@@ -72,8 +118,23 @@ function Nav() {
 
                 <ul className="nav__user--box">
                     {/* Search */}
-                    <li className="search">
-                        <i className="fa-solid fa-magnifying-glass"></i>
+                    <li ref={search_Ref} className="search">
+                        <div ref={search_box_Ref} className="search-box">
+                            <button>
+                                <i className="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <div className="search-input-wrap">
+                                <input
+                                    ref={search_input_Ref}
+                                    className="search-input"
+                                    htmlFor="text"
+                                    placeholder="Phim, diễn viên, thể loại ..."
+                                />
+                            </div>
+                        </div>
+                        <button ref={search_tab_Ref} className="search-tab" onClick={() => HandleSearch()}>
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </li>
 
                     {/* Trẻ em */}

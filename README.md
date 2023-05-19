@@ -56,15 +56,15 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### How to deploy project with firebase
 
-B1: Khởi chạy terminal và trỏ đến thư mục dự án cần deploy
-B2: Gõ lệnh `npx firebase login` nếu chưa đăng nhập vào firebase
-B3: Gõ tiếp `npx firebase init` để vào giao diện chọn chức năng
-B4: Chọn /Hosting: Configure files for Firebase Hosting and (optionally) set up
-GitHub Action deploys/
-B5: Chọn build -> chọn Y -> nó hỏi có muốn deploy với github không -> chọn n
-B6: Gõ `npm run build`
-B7: Gõ `npx firebase deploy`
-Nó sẽ trả về hoiting URL. đó là đường link dự án đã deploy
+-   B1: Khởi chạy terminal và trỏ đến thư mục dự án cần deploy
+-   B2: Gõ lệnh `npx firebase login` nếu chưa đăng nhập vào firebase
+-   B3: Gõ tiếp `npx firebase init` để vào giao diện chọn chức năng
+-   B4: Chọn /Hosting: Configure files for Firebase Hosting and (optionally) set up
+    GitHub Action deploys/
+-   B5: Chọn build -> chọn Y -> nó hỏi có muốn deploy với github không -> chọn n
+-   B6: Gõ `npm run build`
+-   B7: Gõ `npx firebase deploy`
+    Nó sẽ trả về hoiting URL. đó là đường link dự án đã deploy
 
 **Note: cần phải cài đặt firebase vào trong thư mục dự án của minh: `npm i firebase --save` để cài đặt!**
 

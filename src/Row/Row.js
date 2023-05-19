@@ -5,6 +5,11 @@ import './Row.css';
 function Row({ title, fetchURL, isLargeRow = false }) {
     const [movies, setMovies] = useState([]);
     const [myList, setMyList] = useState([]);
+    const rowWrap = useRef();
+    const rowMovieItem = useRef();
+
+    // console.log(rowWrap.current);
+    // console.log(rowMovieItem.current);
 
     const base_Url = 'https://image.tmdb.org/t/p/original/';
 
@@ -22,7 +27,7 @@ function Row({ title, fetchURL, isLargeRow = false }) {
         fetchData();
     }, [fetchURL]);
 
-    //  Xử lý khi bấm
+    //  Xử lý khi bấm nút thêm yêu thích
     const HandleStorage = (movie) => {
         const updateFavoriteList = [...myList, movie];
         setMyList(updateFavoriteList);
@@ -34,11 +39,11 @@ function Row({ title, fetchURL, isLargeRow = false }) {
         <div className="row">
             <h2 className="row-title">{title}</h2>
 
-            <div className="row__movies">
+            <div className="row__movies" ref={rowWrap}>
                 {movies.map(
                     (movie) =>
                         ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) && (
-                            <div key={movie.id} className={`movie__item`}>
+                            <div key={movie.id} className={`movie__item`} ref={rowMovieItem}>
                                 <img
                                     className={`movie__img ${isLargeRow && 'row__posterLarge'}`}
                                     src={`${base_Url}${isLargeRow ? movie.poster_path : movie?.backdrop_path}`}

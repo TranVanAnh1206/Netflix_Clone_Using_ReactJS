@@ -13,7 +13,6 @@ function MyListScreen() {
         setMyList(JSON.parse(localStorage.getItem('MyFavoriteList')) || []);
         setIsEmpty(true);
     }, []);
-
     console.log('Yêu thích: ', myList);
 
     return (
