@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 
 import './Nav.css';
-import './Responsive.css';
+import './HeaderResponsive.css';
 // import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
 
@@ -73,9 +73,12 @@ function Nav() {
     }, []);
 
     return (
-        <nav className={`nav ${show ? 'nav__black' : 'nav__black--gradien'}`}>
+        <header className={`header ${show ? 'nav__black' : 'nav__black--gradien'}`}>
             <div className="nav__contents">
                 <div className="nav-box">
+                    {/* <div className="navbar-icon-wrap">
+                        <i className="fa-solid fa-bars"></i>
+                    </div> */}
                     <img
                         onClick={() => history('/')}
                         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
@@ -83,37 +86,46 @@ function Nav() {
                         className="nav__logo"
                     />
 
-                    <ul className="nav__list">
-                        <li className="nav__list--item">
-                            <NavLink className="navlink" onClick={handleClick} exact="true" to="/" active="true">
-                                Trang chủ
-                            </NavLink>
-                        </li>
+                    <div className="navbar-wrapper">
+                        <div className="menu-trigger">
+                            <span>Duyệt Tìm</span>
+                            <span className="icon-wrapper">
+                                <i className="rotate-icon fa-solid fa-caret-down"></i>
+                            </span>
+                        </div>
 
-                        <li className="nav__list--item">
-                            <NavLink className="navlink" onClick={handleClick} to="/TVShow">
-                                Phim truyền hình
-                            </NavLink>
-                        </li>
+                        <ul className="nav__list">
+                            <li className="nav__list--item">
+                                <NavLink className="navlink" onClick={handleClick} exact="true" to="/" active="true">
+                                    Trang chủ
+                                </NavLink>
+                            </li>
 
-                        <li className="nav__list--item">
-                            <NavLink className="navlink" onClick={handleClick} to="/Anime">
-                                Phim hoạt hình
-                            </NavLink>
-                        </li>
+                            <li className="nav__list--item">
+                                <NavLink className="navlink" onClick={handleClick} to="/TVShow">
+                                    Phim truyền hình
+                                </NavLink>
+                            </li>
 
-                        <li className="nav__list--item">
-                            <NavLink className="navlink" onClick={handleClick} to="/MyList">
-                                Danh sách của tôi
-                            </NavLink>
-                        </li>
+                            <li className="nav__list--item">
+                                <NavLink className="navlink" onClick={handleClick} to="/Anime">
+                                    Phim hoạt hình
+                                </NavLink>
+                            </li>
 
-                        <li className="nav__list--item">
-                            <NavLink className="navlink" onClick={handleClick} to="/SearchByName">
-                                Tìm kiếm theo tên
-                            </NavLink>
-                        </li>
-                    </ul>
+                            <li className="nav__list--item">
+                                <NavLink className="navlink" onClick={handleClick} to="/MyList">
+                                    Danh sách của tôi
+                                </NavLink>
+                            </li>
+
+                            <li className="nav__list--item">
+                                <NavLink className="navlink" onClick={handleClick} to="/SearchByName">
+                                    Tìm kiếm theo tên
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <ul className="nav__user--box">
@@ -144,6 +156,7 @@ function Nav() {
                     <li className="notification">
                         <div className="notify__icon">
                             <i className="fa-solid fa-bell"></i>
+                            <span className="notif-number">2</span>
                         </div>
                         <div className="notificaion__list">
                             <h3 className="notify__list--title">Thông báo</h3>
@@ -225,7 +238,7 @@ function Nav() {
                     </li>
                 </ul>
             </div>
-        </nav>
+        </header>
     );
 }
 

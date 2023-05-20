@@ -1,19 +1,34 @@
 import React, { useEffect, useState } from 'react';
+
 import Nav from '../../Nav/Nav';
 import Footer from '../../Footer/Footer';
 import './MyListScreen.css';
+import { ReadDataFromRealtimeDatabase } from '../../firebase';
 
 function MyListScreen() {
-    const [isEmpty, setIsEmpty] = useState(false);
+    const [isEmpty, setIsEmpty] = useState(true);
     const [myList, setMyList] = useState([]);
 
     const img_Base_Url = 'https://image.tmdb.org/t/p/original/';
 
     useEffect(() => {
-        setMyList(JSON.parse(localStorage.getItem('MyFavoriteList')) || []);
-        setIsEmpty(true);
+        // setMyList(JSON.parse(localStorage.getItem('MyFavoriteList')) || []);
+
+        const currentUser = JSON.parse(localStorage.getItem('User'));
+        const readFromDB = ReadDataFromRealtimeDatabase('watch_later', currentUser.user.uid, 'movies');
+
+        if (!readFromDB || readFromDB.length == 0) {
+            setIsEmpty(true);
+            return;
+        }
+
+        // Do readFromDB lấy từ cơ sở dữ liệu ra là 1 object
+        // ta cần chuyển dổi sang dạng mảng
+        const arr = Object.keys(readFromDB).map((key) => readFromDB[key]);
+        setMyList(arr);
     }, []);
-    console.log('Yêu thích: ', myList);
+
+    console.log(myList);
 
     return (
         <div className="myListScreen">

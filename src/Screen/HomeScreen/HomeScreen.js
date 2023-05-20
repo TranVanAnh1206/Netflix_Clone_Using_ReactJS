@@ -13,7 +13,7 @@ function HomeScreen() {
             <Banner fetchURL={requests.fetchAnimations} />
 
             <Row title="Netflix original" fetchURL={requests.fetNetflixOriginals} isLargeRow />
-            {/* <Row
+            <Row
                 title="Trending now"
                 fetchURL={requests.fetchTrending}
                 // isLargeRow
@@ -53,7 +53,7 @@ function HomeScreen() {
                 title="Documentaries"
                 fetchURL={requests.fetchDocumentaries}
                 // isLargeRow
-            /> */}
+            />
 
             <Footer />
         </div>

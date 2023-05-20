@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import './Banner.css';
+import './BannerResponsive.css';
 import axios from '../axios';
 
 function Banner({ fetchURL }) {
@@ -47,7 +48,7 @@ function Banner({ fetchURL }) {
                 style={{
                     backgroundSize: 'cover',
                     backgroundPosition: 'center center',
-                    backgroundRepeat: 'none',
+                    backgroundRepeat: 'no-repeat',
                     backgroundImage: `linear-gradient(-90deg, transparent, transparent, #000), url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
                 }}
             >

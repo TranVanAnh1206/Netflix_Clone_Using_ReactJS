@@ -1,0 +1,19 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+    .banner__contents {
+        width: 400px;
+        z-index: 2;
+        left: 30px;
+    }
+
+    .banner__series--film {
+        font-size: 20px;
+    }
+
+    .banner__film--name {
+        font-size: 24px;
+    }
+
+    .banner__film--desc {
+        font-size: 14px;
+    }
+}

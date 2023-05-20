@@ -2,7 +2,11 @@ ul {
     list-style: none;
 }
 
-.nav {
+.header {
+    --search-height: 34px;
+    --search-box-width: 245px;
+    --search-input-width: 212px;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -22,6 +26,8 @@ ul {
     background-image: linear-gradient(180deg, #111, #111, transparent);
 }
 
+/* ========== Navbar contents ==========*/
+
 .nav__contents {
     display: flex;
     justify-content: space-between;
@@ -30,10 +36,20 @@ ul {
     position: relative;
 }
 
+/*  */
+
+.navbar-icon-wrap {
+    color: #fff;
+}
+
+/*  */
+
 .nav-box {
     display: flex;
     align-items: center;
 }
+
+/*  */
 
 .nav__logo {
     width: 100px;
@@ -42,12 +58,32 @@ ul {
     cursor: pointer;
 }
 
+.navbar-wrapper {
+    transition: all 0.3s ease;
+}
+
+.menu-trigger {
+    margin-left: 24px;
+    color: #fff;
+    display: none;
+}
+
+.navbar-wrapper:hover .rotate-icon {
+    transform: rotate(180deg);
+}
+
+.icon-wrapper {
+    padding-left: 10px;
+    transition: all 0.5s ease;
+}
+
 .nav__list {
     list-style: none;
     margin-left: 20px;
     color: #fff;
     display: flex;
     justify-content: space-between;
+    transition: all 0.3s linear;
 }
 
 .nav__list--item {
@@ -112,7 +148,7 @@ ul {
 
     100% {
         opacity: 1;
-        width: 245px;
+        width: var(--search-box-width);
     }
 }
 
@@ -125,7 +161,7 @@ ul {
     background: transparent;
     border: none;
     color: #fff;
-    height: 34px;
+    height: var(--search-height);
     padding: 6px;
     font-size: 20px;
     cursor: pointer;
@@ -140,19 +176,15 @@ ul {
 
 .search-input-wrap input {
     display: inline-block;
-    height: 34px;
-    line-height: 34px;
+    height: var(--search-height);
+    line-height: var(--search-height);
     outline: none;
     border: none;
     padding: 7px 14px 7px 7px;
     background: transparent;
     font-size: 14px;
     color: #fff;
-    width: 212px;
-}
-
-.search-input-wrap .search-input.action {
-    /* width: 212px; */
+    width: var(--search-input-width);
 }
 
 /* for kid */
@@ -174,7 +206,22 @@ ul {
 }
 
 .notify__icon {
+    position: relative;
     cursor: pointer;
+}
+
+.notif-number {
+    position: absolute;
+    top: -5px;
+    left: 7px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    text-align: center;
+    background-color: #b9090b;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
 }
 
 .notificaion__list {
@@ -185,7 +232,7 @@ ul {
     border-top: 3px solid #fff;
     opacity: 0.9;
     width: 400px;
-    max-height: 300px;
+    max-height: calc(100vh - 280px);
     top: 200%;
     right: -20px;
     border-radius: 10px;

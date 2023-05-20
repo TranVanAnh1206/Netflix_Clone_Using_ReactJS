@@ -34,7 +34,21 @@ function SignInScreen() {
         // ktra đăng nhập với email
         if (emailRegex.test(emailRef.current.value)) {
             console.log('Dây là email');
-            signInWithEmail(emailRef.current.value, passwordRef.current.value);
+            signInWithEmail(emailRef.current.value, passwordRef.current.value)
+                .then((authUser) => {
+                    // khi đăng nhập sẽ lưu thông tin tài khoản đăng nhập vào locaStorage
+                    localStorage.setItem('User', JSON.stringify(authUser));
+
+                    console.log(authUser);
+                })
+                .catch((error) => {
+                    if (error.code === 'auth/user-not-found') {
+                        alert('User not found. Please try again.');
+                    } else if (error.code === 'auth/wrong-password') {
+                        alert('Wrong password. Please try again.');
+                    }
+                });
+
             return;
         } else if (phoneRegex.test(emailRef.current.value)) {
             // Kiểm tra đăng nhập với SĐT
