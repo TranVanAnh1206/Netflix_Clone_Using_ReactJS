@@ -12,7 +12,11 @@ function HomeScreen() {
             <Nav />
             <Banner fetchURL={requests.fetchAnimations} />
 
-            <Row title="Netflix original" fetchURL={requests.fetNetflixOriginals} isLargeRow />
+            <Row
+                title="Netflix original"
+                fetchURL={requests.fetNetflixOriginals}
+                // isLargeRow
+            />
             <Row
                 title="Trending now"
                 fetchURL={requests.fetchTrending}
@@ -38,7 +42,11 @@ function HomeScreen() {
                 fetchURL={requests.fetchHorrorMovies}
                 // isLargeRow
             />
-            <Row title="Animations" fetchURL={requests.fetchAnimations} isLargeRow />
+            <Row
+                title="Animations"
+                fetchURL={requests.fetchAnimations}
+                // isLargeRow
+            />
             <Row
                 title="Science Fictions"
                 fetchURL={requests.fetchScienceFictions}

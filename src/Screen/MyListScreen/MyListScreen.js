@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import Nav from '../../Nav/Nav';
 import Footer from '../../Footer/Footer';
@@ -8,6 +8,7 @@ import { ReadDataFromRealtimeDatabase } from '../../firebase';
 function MyListScreen() {
     const [isEmpty, setIsEmpty] = useState(true);
     const [myList, setMyList] = useState([]);
+    const nodeRef = useRef(null);
 
     const img_Base_Url = 'https://image.tmdb.org/t/p/original/';
 
@@ -34,7 +35,7 @@ function MyListScreen() {
         <div className="myListScreen">
             <Nav />
 
-            <div className="myListScreen__body">
+            <div ref={nodeRef} className="myListScreen__body">
                 {!isEmpty ? (
                     <div className="AnimeScreen_body">
                         <span>Danh sách của bạn đang trống</span>

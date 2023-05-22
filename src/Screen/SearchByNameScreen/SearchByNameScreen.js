@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
+
 import Nav from '../../Nav/Nav';
 import Footer from '../../Footer/Footer';
 import './SearchByNameScreen.css';
@@ -18,6 +20,9 @@ function SearchByNameScreen() {
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+
+    const [inProp, setInProp] = useState(false);
+    const nodeRef = useRef(null);
 
     const img_base_Url = 'https://image.tmdb.org/t/p/original/';
     const API_KEY = '900f62974efe56ae3058a8cc053e0885';
@@ -82,7 +87,7 @@ function SearchByNameScreen() {
         <div className="searchByNameScreen">
             <Nav />
 
-            <section className="search__screen">
+            <section ref={nodeRef} className="search__screen">
                 <div className="sub__header--wrapper">
                     <div className="sub__header--title">
                         <h1>Duyệt tìm theo tên</h1>

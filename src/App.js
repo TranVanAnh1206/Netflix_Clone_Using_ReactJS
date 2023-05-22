@@ -62,24 +62,6 @@ function App() {
         };
     }, []);
 
-    // return (
-    //     <Router>
-    //       <Route
-    //         render={({ location }) => (
-    //           <TransitionGroup>
-    //             <CSSTransition key={location.key} classNames="slide" timeout={300}>
-    //               <Switch location={location}>
-    //                 <Route exact path="/" component={Home} />
-    //                 <Route path="/about" component={About} />
-    //                 <Route path="/contact" component={Contact} />
-    //               </Switch>
-    //             </CSSTransition>
-    //           </TransitionGroup>
-    //         )}
-    //       />
-    //     </Router>
-    //   );
-
     return (
         <div className="app">
             {!isOnline ? (
