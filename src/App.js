@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './App.css';
 import { auth } from './firebase';
 import { login, logout, selectUser } from './features/userSlice';
 import HomeScreen from './Screen/HomeScreen/HomeScreen';
@@ -15,6 +14,7 @@ import SearchByNameScreen from './Screen/SearchByNameScreen/SearchByNameScreen';
 import PaymentScreen from './Screen/PaymentScreen/PaymentScreen';
 import NotFoundScreen from './Screen/Error404Screen/NotFoundScreen';
 import AccountScreen from './Screen/ProfileScreen/AccountScreen';
+import ForgotPassword from './Conponents/Layouts/ForgotPassword/ForgotPassword';
 
 function App() {
     const user = useSelector(selectUser);
@@ -71,6 +71,7 @@ function App() {
                     {!user ? (
                         <LoginScreen />
                     ) : (
+                        // <ForgotPassword />
                         <Routes>
                             <React.Fragment>
                                 <Route exact="true" path="/" element={<HomeScreen />}></Route>

@@ -1,13 +1,13 @@
 import React from 'react';
 import './AccountScreen.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function AccountScreen() {
     const history = useNavigate();
 
     return (
         <div className="accountScreen">
-            <header className="nav nav__black">
+            <header className="header nav__black">
                 <div className="nav__contents">
                     <img
                         onClick={() => history('/')}
@@ -87,7 +87,9 @@ function AccountScreen() {
                     <h3>Thông tin gói dịch vụ</h3>
                     <div className="ele-section-group-item">
                         <h4>Miễn phí</h4>
-                        <button className="package-update-btn">Nâng cấp</button>
+                        <Link className="package-update-btn" to="/paymentScreen">
+                            Nâng cấp
+                        </Link>
                     </div>
                 </div>
 

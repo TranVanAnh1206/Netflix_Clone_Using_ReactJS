@@ -1,6 +1,6 @@
 import React from 'react';
 import './HomeScreen.css';
-import Nav from '../../Nav/Nav';
+import Nav from '../../Header/Nav';
 import Banner from '../../Banner/Banner';
 import requests from '../../Requests';
 import Row from '../../Row/Row';

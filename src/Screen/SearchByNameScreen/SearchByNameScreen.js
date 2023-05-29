@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-import Nav from '../../Nav/Nav';
+import Nav from '../../Header/Nav';
 import Footer from '../../Footer/Footer';
 import './SearchByNameScreen.css';
 import axios from '../../axios';
@@ -42,7 +42,9 @@ function SearchByNameScreen() {
              * thì giá trị được trả về sẽ được sử dụng làm hàm dọn dẹp
              * cho hook useEffect().
              *
-             * Chức năng dọn dẹp này được sử dụng để hủy mọi
+             * return sử dụng trong useEffect đgl clean up function
+             *
+             * clean up function được sử dụng để hủy mọi
              * yêu cầu chưa xử lý, xóa mọi đăng ký hoặc thực hiện
              * bất kỳ hoạt động dọn dẹp nào khác cần thiết để ngăn
              * rò rỉ bộ nhớ và các sự cố khác. Tuy nhiên, trong mã này,

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './ProfileScreen.css';
-import Nav from '../../Nav/Nav';
+import Nav from '../../Header/Nav';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/userSlice';
 import { auth } from '../../firebase';

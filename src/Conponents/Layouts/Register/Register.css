@@ -1,0 +1,81 @@
+.register {
+    animation: slider 2s ease;
+}
+
+@keyframes slider {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.register-wrap {
+    margin-bottom: 15px;
+}
+
+.register-contents input {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 17px;
+    outline: none;
+    border: transparent;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    color: #fff;
+}
+
+.register-contents button {
+    width: 100%;
+}
+
+.register-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.message {
+    display: block;
+    line-height: 18px;
+    padding: 6px 0;
+    font-size: 16px;
+    color: rgb(255, 55, 55);
+}
+
+.register-wrap-content {
+    display: flex;
+}
+
+.register-wrap-content span {
+    position: relative;
+    display: inline-block;
+    color: #333;
+    font-size: 25px;
+    padding: 0 9px;
+    cursor: pointer;
+    height: 42px;
+    width: 40px;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 0 3px 3px 0;
+    color: #ccc;
+    border: 1px solid #ccc;
+}
+
+.icon-eye {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+}
+
+.register-password-input,
+.register-confirm-password-input {
+    border-radius: 3px 0 0 3px !important;
+}

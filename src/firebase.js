@@ -1,7 +1,14 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signInWithPopup,
+    FacebookAuthProvider,
+} from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import { getDatabase, onValue, child, push, ref, set, update, remove } from 'firebase/database';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { getDatabase, onValue, child, push, ref, set, update, remove, get } from 'firebase/database';
 
 // Đối tượng firebaseConfig chứa thông tin cần thiết để kết nối với cơ sở dữ liệu Firestore
 const firebaseConfig = {
@@ -58,6 +65,17 @@ const WriteDataToRealtimeDataBase = (path, uid, childBranch, childBranchBody) =>
 };
 
 ///// Đọc thông tin từ realtime database
+
+// const ReadDataFromRealtimeDatabase = async (path, uid, childBranch) => {
+//     const dataRef = ref(firebaseDatabase, `${path}/${uid}/${childBranch}`);
+//     let snapshotValue = await get(dataRef);
+//     // onValue(dataRef, (snapshot) => {
+//     //     snapshotValue = snapshot.val();
+//     // });
+
+//     return snapshotValue.val();
+// };
+
 const ReadDataFromRealtimeDatabase = (path, uid, childBranch) => {
     const dataRef = ref(firebaseDatabase, `${path}/${uid}/${childBranch}`);
     let snapshotValue = null;
@@ -90,8 +108,80 @@ const DeleteDataFromRealtimeDatabase = (path) => {
         });
 };
 
+// Đăng nhập bằng Google
+const GG_Provider = new GoogleAuthProvider();
+// GG_provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+auth.languageCode = 'it';
+// Để áp dụng tùy chọn trình duyệt mặc định thay vì đặt nó một cách rõ ràng.
+// firebase.auth().useDeviceLanguage();
+
+GG_Provider.setCustomParameters({
+    login_hint: 'user@example.com',
+});
+
+const SignInWithGoogle = () => {
+    signInWithPopup(auth, GG_Provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+};
+
+// Đăng nhập bằng facebook
+const FB_Provider = new FacebookAuthProvider();
+FB_Provider.addScope('user_birthday');
+auth.languageCode = 'it';
+// To apply the default browser preference instead of explicitly setting it.
+// firebase.auth().useDeviceLanguage();
+
+FB_Provider.setCustomParameters({
+    display: 'popup',
+});
+
+const signInWithFacebook = () => {
+    signInWithPopup(auth, FB_Provider)
+        .then((result) => {
+            // The signed-in user info.
+            const user = result.user;
+
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            const credential = FacebookAuthProvider.credentialFromResult(result);
+            const accessToken = credential.accessToken;
+
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = FacebookAuthProvider.credentialFromError(error);
+
+            // ...
+        });
+};
+
 export { auth };
 export { signInWithEmail, registerWithEmail };
+export { SignInWithGoogle, signInWithFacebook };
 export {
     WriteDataToRealtimeDataBase,
     ReadDataFromRealtimeDatabase,
