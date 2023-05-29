@@ -1,3 +1,16 @@
+.animate {
+    animation: page_animation 1s ease;
+}
+
+@keyframes page_animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .tvShowScreen__Banner {
     position: relative;
     height: 100vh;
@@ -55,9 +68,8 @@
 
 .rowFilm__item:hover {
     transform: scale(1.08);
-
 }
 
-.rowFilm__item img{
+.rowFilm__item img {
     height: 250px;
 }

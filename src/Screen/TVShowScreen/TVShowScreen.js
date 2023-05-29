@@ -40,64 +40,70 @@ function TVShowScreen() {
         <div className="tvShowScreen">
             <Nav />
 
-            <div
-                className="tvShowScreen__Banner"
-                style={{
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center center',
-                    backgroundImage: `linear-gradient(-90deg, transparent, transparent, #000), url("${base__URL}${tvMovie?.backdrop_path}")`,
-                }}
-            >
-                {/* movie choose movie genre */}
-                <div className="tvShowScreen__movie--genre">
-                    <h1 className="movie__genre--title">Phim truyền hình</h1>
-                </div>
-
-                {/* moview conten */}
-                <div className="tvShowScreen__contents">
-                    <h2 className="tvShowScreen__series--film">
-                        <span className="icon">
-                            <i className="fa-solid fa-film"></i>
-                        </span>
-                        Loạt phim
-                    </h2>
-                    <h1 className="tvShowScreen__film--name">{tvMovie?.name || tvMovie?.title}</h1>
-                    <p className="tvShowScreen__film--desc">{tvMovie?.overview}</p>
-                    <div className="tvShowScreen__buttons">
-                        <button className="play__btn">
-                            <span className="icon">
-                                <i className="fa-solid fa-play"></i>
-                            </span>
-                            <span className="text--btn">Phát</span>
-                        </button>
-                        <button className="info__btn">
-                            <span className="icon">
-                                <i className="fa-solid fa-circle-info"></i>
-                            </span>
-                            <span className="text--btn">Thông tin khác</span>
-                        </button>
+            <div className="animate">
+                <div
+                    className="tvShowScreen__Banner"
+                    style={{
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center center',
+                        backgroundImage: `linear-gradient(-90deg, transparent, transparent, #000), url("${base__URL}${tvMovie?.backdrop_path}")`,
+                    }}
+                >
+                    {/* movie choose movie genre */}
+                    <div className="tvShowScreen__movie--genre">
+                        <h1 className="movie__genre--title">Phim truyền hình</h1>
                     </div>
+
+                    {/* moview conten */}
+                    <div className="tvShowScreen__contents">
+                        <h2 className="tvShowScreen__series--film">
+                            <span className="icon">
+                                <i className="fa-solid fa-film"></i>
+                            </span>
+                            Loạt phim
+                        </h2>
+                        <h1 className="tvShowScreen__film--name">{tvMovie?.name || tvMovie?.title}</h1>
+                        <p className="tvShowScreen__film--desc">{tvMovie?.overview}</p>
+                        <div className="tvShowScreen__buttons">
+                            <button className="play__btn">
+                                <span className="icon">
+                                    <i className="fa-solid fa-play"></i>
+                                </span>
+                                <span className="text--btn">Phát</span>
+                            </button>
+                            <button className="info__btn">
+                                <span className="icon">
+                                    <i className="fa-solid fa-circle-info"></i>
+                                </span>
+                                <span className="text--btn">Thông tin khác</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="tvShowScreen__lỉnear"></div>
                 </div>
 
-                <div className="tvShowScreen__lỉnear"></div>
+                <Row
+                    title={'Action and adventure'}
+                    fetchURL={requests.fetchTVShowMovies_ActionAndAdventure}
+                    isLargeRow
+                />
+
+                <Row title={'Animations'} fetchURL={requests.fetchTVShowMovies_Animations} />
+
+                <Row title={'News'} fetchURL={requests.fetchTVShowMovies_News} />
+
+                <Row title={'War and politics'} fetchURL={requests.fetchTVShowMovies_WarAndPolitics} />
+
+                <Row title={'Reality'} fetchURL={requests.fetchTVShowMovies_Realities} />
+
+                <Row title={'Sci-Fi and Fantacy'} fetchURL={requests.fetchTVShowMovies_SciFiAndFantacies} />
+
+                <Row title={'Humor'} fetchURL={requests.fetchTVShowMovies_Humors} />
+
+                <Row title={'Drama'} fetchURL={requests.fetchTVShowMovies_Dramas} />
             </div>
-
-            <Row title={'Action and adventure'} fetchURL={requests.fetchTVShowMovies_ActionAndAdventure} isLargeRow />
-
-            <Row title={'Animations'} fetchURL={requests.fetchTVShowMovies_Animations} />
-
-            <Row title={'News'} fetchURL={requests.fetchTVShowMovies_News} />
-
-            <Row title={'War and politics'} fetchURL={requests.fetchTVShowMovies_WarAndPolitics} />
-
-            <Row title={'Reality'} fetchURL={requests.fetchTVShowMovies_Realities} />
-
-            <Row title={'Sci-Fi and Fantacy'} fetchURL={requests.fetchTVShowMovies_SciFiAndFantacies} />
-
-            <Row title={'Humor'} fetchURL={requests.fetchTVShowMovies_Humors} />
-
-            <Row title={'Drama'} fetchURL={requests.fetchTVShowMovies_Dramas} />
 
             <Footer />
         </div>

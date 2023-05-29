@@ -1,6 +1,7 @@
 .accountScreen {
     /* background-color: #f2f2f2; */
     background-color: #fff;
+    animation: page_animation 1s ease;
 }
 
 .account-container {

@@ -1,5 +1,7 @@
 .myListScreen__body {
     color: #fff;
+    animation: page_animation 1s ease;
+    min-height: calc(100vh - 288px);
 }
 
 .my__row--grid {

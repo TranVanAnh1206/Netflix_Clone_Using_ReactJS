@@ -10,58 +10,61 @@ function HomeScreen() {
     return (
         <div className="homeScreen">
             <Nav />
-            <Banner fetchURL={requests.fetchAnimations} />
 
-            <Row
-                title="Netflix original"
-                fetchURL={requests.fetNetflixOriginals}
-                // isLargeRow
-            />
-            <Row
-                title="Trending now"
-                fetchURL={requests.fetchTrending}
-                // isLargeRow
-            />
-            <Row
-                title="Top rated"
-                fetchURL={requests.fetchTopRated}
-                // isLargeRow
-            />
-            <Row
-                title="Action movies"
-                fetchURL={requests.fetchActionMovies}
-                // isLargeRow
-            />
-            <Row
-                title="Comedy movies"
-                fetchURL={requests.fetchComedyMovies}
-                // isLargeRow
-            />
-            <Row
-                title="Horror movies"
-                fetchURL={requests.fetchHorrorMovies}
-                // isLargeRow
-            />
-            <Row
-                title="Animations"
-                fetchURL={requests.fetchAnimations}
-                // isLargeRow
-            />
-            <Row
-                title="Science Fictions"
-                fetchURL={requests.fetchScienceFictions}
-                // isLargeRow
-            />
-            <Row
-                title="Romance movies"
-                fetchURL={requests.fetchRomanceMovies}
-                // isLargeRow
-            />
-            <Row
-                title="Documentaries"
-                fetchURL={requests.fetchDocumentaries}
-                // isLargeRow
-            />
+            <div className="animate">
+                <Banner fetchURL={requests.fetchAnimations} />
+
+                <Row
+                    title="Netflix original"
+                    fetchURL={requests.fetNetflixOriginals}
+                    // isLargeRow
+                />
+                <Row
+                    title="Trending now"
+                    fetchURL={requests.fetchTrending}
+                    // isLargeRow
+                />
+                <Row
+                    title="Top rated"
+                    fetchURL={requests.fetchTopRated}
+                    // isLargeRow
+                />
+                <Row
+                    title="Action movies"
+                    fetchURL={requests.fetchActionMovies}
+                    // isLargeRow
+                />
+                <Row
+                    title="Comedy movies"
+                    fetchURL={requests.fetchComedyMovies}
+                    // isLargeRow
+                />
+                <Row
+                    title="Horror movies"
+                    fetchURL={requests.fetchHorrorMovies}
+                    // isLargeRow
+                />
+                <Row
+                    title="Animations"
+                    fetchURL={requests.fetchAnimations}
+                    // isLargeRow
+                />
+                <Row
+                    title="Science Fictions"
+                    fetchURL={requests.fetchScienceFictions}
+                    // isLargeRow
+                />
+                <Row
+                    title="Romance movies"
+                    fetchURL={requests.fetchRomanceMovies}
+                    // isLargeRow
+                />
+                <Row
+                    title="Documentaries"
+                    fetchURL={requests.fetchDocumentaries}
+                    // isLargeRow
+                />
+            </div>
 
             <Footer />
         </div>

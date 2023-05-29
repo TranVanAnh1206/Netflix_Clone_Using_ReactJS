@@ -30,7 +30,7 @@ function MyListScreen() {
             const readFromDB = ReadDataFromRealtimeDatabase('watch_later', currentUser.user.uid, 'movies');
 
             if (!readFromDB || readFromDB.length == 0) {
-                setIsEmpty(true);
+                setIsEmpty(false);
                 return;
             }
 
