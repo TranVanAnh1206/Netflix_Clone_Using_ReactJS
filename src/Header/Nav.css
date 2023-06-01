@@ -111,10 +111,11 @@ ul {
 .navlink:hover {
     text-decoration: underline;
     transition: all 0.3s ease-in;
+    color: #898585;
 }
 
 .navlink.active {
-    color: var(--netflix-btn-color);
+    color: #fff;
     text-decoration: underline;
 }
 

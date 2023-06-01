@@ -8,6 +8,10 @@ html {
     scroll-behavior: smooth;
 }
 
+#root {
+    position: relative;
+}
+
 .app {
     position: relative;
     background-color: #111;

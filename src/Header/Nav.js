@@ -7,6 +7,45 @@ import './HeaderResponsive.css';
 // import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
 
+import HiepSiAoDen from '../Conponents/assets/images/AAAABbSWX6RZDOm2i6smz83YHZJsmUsbiXx_xk_wmDV09JRpzXGC1QeOSwilr_JCCe2gi2a6SfOzysLdjExZbyVCmky-y5cMHetvceR2-lUvtMotPIAAFbCmrskTzetkdQDa1704HKh8_ZCnZD8.jpg';
+import SieuLuaGapSieuLay from '../Conponents/assets/images/AAAABfZDTHvK75bB-gFcQGEJqChg5hzRx3KqxFCVld_yDc9eT4GC70EFef_zYcGbf0TSMTvbWFqSTksi9lalf97s-QhTFZedFg_qzERt8oH3erYUfj3HWXLDZYm4j89vBxgvs2eofaF0RF6Ite4.jpg';
+import Ragnarok from '../Conponents/assets/images/AAAABWdN0s424ZZmZnhcGJM2E-mByFsbdm8FEDD0-auf9oPThi62zz-T1r0uBqXd_J6VGCLSQ8pmhPU0sOlhVQL3V1h0dEpTIvg.jpg';
+import KamenRiderSaber from '../Conponents/assets/images/AAAABYatL0Rmo_C8cb8h79_FLOYFYhOIFhduUeOQXnCn2jXeirYhWAITx53B7fa5lPqaPK7V19cZAbp8-T5pJVgJbzAJqA_Id9DC4KPZ5vgoRLaCrNBirZ4tDS_7sOT0pIFMfnWVPBLI0I5xyGI.jpg';
+import NetflixComingSoon from '../Conponents/assets/images/csInapp_112x63.png';
+
+const notifycation = [
+    {
+        title: 'Nội dung mới',
+        content: 'Hiệp sĩ áo đen',
+        time: '29/05/2023',
+        img: HiepSiAoDen,
+    },
+    {
+        title: 'Tiếp tục xem',
+        content: 'Ragnarok Hoàng hôn của chư thần',
+        time: '28/05/2023',
+        img: Ragnarok,
+    },
+    {
+        title: 'Tiếp tục xem',
+        content: 'Hiệp sĩ mặt nạ: Thánh kiếm',
+        time: '25/05/2023',
+        img: KamenRiderSaber,
+    },
+    {
+        title: 'Nội dung mới',
+        content: 'Siêu lừa gặp siêu lầy',
+        time: '29/05/2023',
+        img: SieuLuaGapSieuLay,
+    },
+    {
+        title: 'Netflix sắp ra mắt',
+        content: 'Khám phá các nội dung sắp ra mắt',
+        time: '29/05/2023',
+        img: NetflixComingSoon,
+    },
+];
+
 function Nav() {
     const history = useNavigate(); // thay cho useHistory() ở phiên bản v5
     const [show, handleShow] = useState(true);

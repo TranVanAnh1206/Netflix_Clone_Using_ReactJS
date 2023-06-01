@@ -115,3 +115,8 @@ chạy lại dự án
 "vueIndentScriptAndStyle": false
 }
 ```
+
+
+Thông tin của một bộ phim lấy được api tmdb
+http://api.themoviedb.org/3/movie/{id}?api_key={Your_API_KEY}&append_to_response=videos
+http://api.themoviedb.org/3/movie/131634?api_key=900f62974efe56ae3058a8cc053e0885&append_to_response=videos

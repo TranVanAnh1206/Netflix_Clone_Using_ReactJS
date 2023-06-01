@@ -1,0 +1,18 @@
+/* .dialog-wrapper {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #111;
+    opacity: 0.6;
+    color: #fff;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.dialog-wrapper h2 {
+    color: yellowgreen;
+} */

@@ -153,3 +153,40 @@ h1 {
     display: flex;
     height: 700px;
 }
+
+/* ========================  */
+.previewModal-wrapper {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1000px;
+    background-color: rgba(1, 1, 1, 0.7);
+    padding: 70px 0 0 0;
+    color: #fff;
+    z-index: 9999;
+    overflow-y: auto;
+    transition: all 0.2s ease;
+}
+
+.previewModal__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewModal-wrapper.hidden {
+    display: none;
+}
+
+.previewModal-container {
+    width: 60vw;
+    background-color: #111;
+    height: 1000px;
+}
+
+.previewModal-container img {
+    width: 100%;
+}
