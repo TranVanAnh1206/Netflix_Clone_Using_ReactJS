@@ -169,6 +169,7 @@ h1 {
     z-index: 9999;
     overflow-y: auto;
     transition: all 0.2s ease;
+    display: none;
 }
 
 .previewModal__box {
@@ -177,8 +178,8 @@ h1 {
     align-items: center;
 }
 
-.previewModal-wrapper.hidden {
-    display: none;
+.previewModal-wrapper.active {
+    display: block;
 }
 
 .previewModal-container {

@@ -46,12 +46,12 @@ function Banner({ fetchURL }) {
     };
 
     const HandleClickModelDialog = () => {
-        dialogRef.current.classList.remove('hidden');
+        dialogRef.current.classList.add('active');
         document.body.style.overflow = 'hidden';
     };
 
     const HandleCloseDialog = () => {
-        dialogRef.current.classList.add('hidden');
+        dialogRef.current.classList.remove('active');
         document.body.style.overflow = 'auto';
     };
 
@@ -106,6 +106,14 @@ function Banner({ fetchURL }) {
                             <div className="previewModal-player-wrap">
                                 <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} />
                             </div>
+
+                            <div className='previewAction'>
+                                <button className="play__btn" onClick={handlePlayBtn}>
+                                    <span className="icon">
+                                        <i className="fa-solid fa-play"></i>
+                                    </span>
+                                    <span className="text--btn">Phát</span>
+                                </button>
                         </div>
                     </div>
                 </div>
