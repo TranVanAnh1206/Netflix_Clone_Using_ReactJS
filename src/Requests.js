@@ -24,6 +24,8 @@ const requests = {
     fetAnimation_Anime: `/discover/animation?api_key=${API_KEY}&with_genres=16`,
 
     fetchAllMovies: `/discover/movie?api_key=${API_KEY}`,
+
+    GenresList: `/genre/movie/list?api_key=${API_KEY}`,
 };
 
 export default requests;

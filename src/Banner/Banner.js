@@ -5,10 +5,12 @@ import './Banner.css';
 import './BannerResponsive.css';
 import axios from '../axios';
 import Dialog from '../Conponents/Layouts/Dialog/Dialog';
+import requests from '../Requests';
 
 function Banner({ fetchURL }) {
     const [movie, setMovie] = useState([]);
     const [randomMovieID, setRandomMovieID] = useState();
+    const [genresList, setGenresList] = useState([]);
 
     const dialogRef = useRef();
     const dialogCloseRef = useRef();
@@ -41,6 +43,23 @@ function Banner({ fetchURL }) {
     // console.log(movie);
     // console.log(randomMovieID);
 
+    useEffect(() => {
+        async function FetGenresData() {
+            try {
+                const request = await axios.get(requests.GenresList);
+                const genresListData = request.data.genres;
+
+                setGenresList(genresListData);
+            } catch (error) {
+                throw new Error(error.message);
+            }
+        }
+
+        FetGenresData();
+    }, []);
+
+    // console.log(genresList);
+
     const handlePlayBtn = () => {
         alert('This feature is development ...');
     };
@@ -48,6 +67,7 @@ function Banner({ fetchURL }) {
     const HandleClickModelDialog = () => {
         dialogRef.current.classList.add('active');
         document.body.style.overflow = 'hidden';
+        console.log(movie);
     };
 
     const HandleCloseDialog = () => {
@@ -100,20 +120,41 @@ function Banner({ fetchURL }) {
                 <div ref={dialogRef} className="previewModal-wrapper">
                     <div className="previewModal__box">
                         <div className="previewModal-container" role="dialog">
-                            <button onClick={HandleCloseDialog} ref={dialogCloseRef}>
-                                Close
+                            <button onClick={HandleCloseDialog} ref={dialogCloseRef} className="dialogClose">
+                                <span>
+                                    <i class="fa-solid fa-xmark"></i>
+                                </span>
                             </button>
                             <div className="previewModal-player-wrap">
                                 <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} />
                             </div>
 
-                            <div className='previewAction'>
+                            <div className="previewAction">
                                 <button className="play__btn" onClick={handlePlayBtn}>
                                     <span className="icon">
                                         <i className="fa-solid fa-play"></i>
                                     </span>
                                     <span className="text--btn">Phát</span>
                                 </button>
+
+                                <button className="previewAction-btn">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+
+                                <button className="previewAction-btn">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                </button>
+                            </div>
+
+                            <div className="previewModal-movie-info">
+                                <h1 className="banner__film--name">
+                                    {movie?.title || movie?.name || movie?.original_name}
+                                </h1>
+                                {/* <p className="">{movie?.overview}</p> */}
+                                {/* <p className="">{movie?.overview}</p> */}
+                                {/* <p className="">{movie?.overview}</p>
+                                <p className="">{movie?.overview}</p> */}
+                            </div>
                         </div>
                     </div>
                 </div>

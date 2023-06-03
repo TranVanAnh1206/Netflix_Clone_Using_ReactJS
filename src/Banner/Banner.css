@@ -166,10 +166,22 @@ h1 {
     background-color: rgba(1, 1, 1, 0.7);
     padding: 70px 0 0 0;
     color: #fff;
-    z-index: 9999;
+    z-index: 1000;
     overflow-y: auto;
     transition: all 0.2s ease;
     display: none;
+    transition: all 1s ease;
+    animation: hiddenPreviewModal 0.7s ease;
+}
+
+@keyframes hiddenPreviewModal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .previewModal__box {
@@ -183,11 +195,79 @@ h1 {
 }
 
 .previewModal-container {
-    width: 60vw;
-    background-color: #111;
-    height: 1000px;
+    position: relative;
+    width: 850px;
+    background: #181818;
+    /* height: 500px; */
 }
 
 .previewModal-container img {
     width: 100%;
+}
+
+.dialogClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    border: none;
+    background: #181818;
+    color: #fff;
+    font-weight: 200;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.previewModal-player-wrap {
+    position: relative;
+}
+
+.previewModal-player-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(0deg, rgba(24, 24, 24, 1) 0%, rgba(24, 24, 24, 1) 30%, transparent 100%);
+}
+
+.previewModal-movie-info {
+    display: block;
+    padding: 40px 0 50px 0;
+    margin-bottom: 100px;
+}
+
+.previewAction {
+    display: flex;
+    position: absolute;
+    top: 380px;
+    left: 52px;
+}
+
+.previewAction button {
+    margin-top: 0;
+}
+
+.previewAction-btn {
+    border: 1px solid #d4d4d4;
+    background: #2a2a2a99;
+    font-size: 18px;
+    color: #fff;
+    margin-right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.previewAction-btn:hover {
+    border: 2px solid #fff;
 }
