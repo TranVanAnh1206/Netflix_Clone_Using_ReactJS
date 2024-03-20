@@ -154,7 +154,7 @@ function Nav() {
 
                             <li className="nav__list--item">
                                 <NavLink className="navlink" onClick={handleClick} to="/MyList">
-                                    Danh sách của tôi
+                                    Danh sách xem sau
                                 </NavLink>
                             </li>
 

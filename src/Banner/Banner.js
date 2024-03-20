@@ -4,13 +4,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Banner.css';
 import './BannerResponsive.css';
 import axios from '../axios';
-import Dialog from '../Conponents/Layouts/Dialog/Dialog';
 import requests from '../Requests';
+import error_img from '../Conponents/assets/images/VN-vi-20230410-popsignuptwoweeks-perspective_alpha_website_medium.jpg';
 
 function Banner({ fetchURL }) {
-    const [movie, setMovie] = useState([]);
-    const [randomMovieID, setRandomMovieID] = useState();
+    const [movie, setMovie] = useState();
     const [genresList, setGenresList] = useState([]);
+    const [currentMovieGenres, setCurrentMovieGenres] = useState([]);
 
     const dialogRef = useRef();
     const dialogCloseRef = useRef();
@@ -29,7 +29,6 @@ function Banner({ fetchURL }) {
                 const randomMovieIndex = Math.floor(Math.random() * request.data.results.length - 1);
                 const randomMovie = request.data.results[randomMovieIndex];
                 setMovie(randomMovie);
-                setRandomMovieID(randomMovie.id);
 
                 return request;
             } catch (error) {
@@ -38,7 +37,7 @@ function Banner({ fetchURL }) {
         }
 
         FetchData();
-    }, []);
+    }, [fetchURL]);
 
     // console.log(movie);
     // console.log(randomMovieID);
@@ -67,6 +66,16 @@ function Banner({ fetchURL }) {
     const HandleClickModelDialog = () => {
         dialogRef.current.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        if (movie && movie.genre_ids) {
+            const findGenres = movie.genre_ids.map((curr_genre_id) => {
+                return genresList.filter((id) => id.id === curr_genre_id);
+            });
+
+            // const concatArr = [].concat(...findGenres);
+            setCurrentMovieGenres([].concat(...findGenres));
+        }
+
         console.log(movie);
     };
 
@@ -122,11 +131,14 @@ function Banner({ fetchURL }) {
                         <div className="previewModal-container" role="dialog">
                             <button onClick={HandleCloseDialog} ref={dialogCloseRef} className="dialogClose">
                                 <span>
-                                    <i class="fa-solid fa-xmark"></i>
+                                    <i className="fa-solid fa-xmark"></i>
                                 </span>
                             </button>
                             <div className="previewModal-player-wrap">
-                                <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} />
+                                <img
+                                    src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+                                    alt={error_img}
+                                />
                             </div>
 
                             <div className="previewAction">
@@ -138,22 +150,110 @@ function Banner({ fetchURL }) {
                                 </button>
 
                                 <button className="previewAction-btn">
-                                    <i class="fa-solid fa-plus"></i>
+                                    <span className="actionBtn-title">Thêm vào xem sau</span>
+                                    <i className="fa-solid fa-plus"></i>
                                 </button>
 
                                 <button className="previewAction-btn">
-                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <span style={{ width: 'auto' }} className="actionBtn-title">
+                                        Thích
+                                    </span>
+                                    <i className="fa-solid fa-thumbs-up"></i>
                                 </button>
                             </div>
 
                             <div className="previewModal-movie-info">
-                                <h1 className="banner__film--name">
+                                {currentMovieGenres.map((genre, index) => {
+                                    return (
+                                        <span className="preview-movie-genre" key={index}>
+                                            {genre.name}
+                                        </span>
+                                    );
+                                })}
+                                <h1 className="preview-movie-name banner__film--name">
                                     {movie?.title || movie?.name || movie?.original_name}
                                 </h1>
-                                {/* <p className="">{movie?.overview}</p> */}
-                                {/* <p className="">{movie?.overview}</p> */}
-                                {/* <p className="">{movie?.overview}</p>
-                                <p className="">{movie?.overview}</p> */}
+
+                                <div className="preview-movie-desc">
+                                    <p className="">{movie?.overview}</p>
+
+                                    {movie && (
+                                        <div className="preview-movie-subdesc">
+                                            <p>
+                                                Ngày khởi chiếu: <span>{movie.release_date}</span>
+                                            </p>
+                                            <p>
+                                                Bình chọn trung bình: <span>{movie.vote_average}</span>
+                                            </p>
+                                            <p>
+                                                Số lượt bình chọn: <span>{movie.vote_count}</span>
+                                            </p>
+                                            <p>
+                                                Ngôn ngữ: <span>{movie.original_language}</span>
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="preview-same-movie">
+                                <h3>Nội dung tương tự</h3>
+
+                                <div className="timeline-item preview-same-movie-content">
+                                    <div className="animated-background same-movie-item">
+                                        <div className="background-masker header-top"></div>
+                                        <div className="background-masker header-left"></div>
+                                        <div className="background-masker header-right"></div>
+                                        <div className="background-masker header-bottom"></div>
+                                        <div className="background-masker subheader-right"></div>
+                                        <div className="background-masker content-bottom"></div>
+                                    </div>
+
+                                    <div className="animated-background same-movie-item">
+                                        <div className="background-masker header-top"></div>
+                                        <div className="background-masker header-left"></div>
+                                        <div className="background-masker header-right"></div>
+                                        <div className="background-masker header-bottom"></div>
+                                        <div className="background-masker subheader-right"></div>
+                                        <div className="background-masker content-bottom"></div>
+                                    </div>
+
+                                    <div className="animated-background same-movie-item">
+                                        <div className="background-masker header-top"></div>
+                                        <div className="background-masker header-left"></div>
+                                        <div className="background-masker header-right"></div>
+                                        <div className="background-masker header-bottom"></div>
+                                        <div className="background-masker subheader-right"></div>
+                                        <div className="background-masker content-bottom"></div>
+                                    </div>
+
+                                    <div className="animated-background same-movie-item">
+                                        <div className="background-masker header-top"></div>
+                                        <div className="background-masker header-left"></div>
+                                        <div className="background-masker header-right"></div>
+                                        <div className="background-masker header-bottom"></div>
+                                        <div className="background-masker subheader-right"></div>
+                                        <div className="background-masker content-bottom"></div>
+                                    </div>
+
+                                    <div className="animated-background same-movie-item">
+                                        <div className="background-masker header-top"></div>
+                                        <div className="background-masker header-left"></div>
+                                        <div className="background-masker header-right"></div>
+                                        <div className="background-masker header-bottom"></div>
+                                        <div className="background-masker subheader-right"></div>
+                                        <div className="background-masker content-bottom"></div>
+                                    </div>
+
+                                    <div className="animated-background same-movie-item">
+                                        <div className="background-masker header-top"></div>
+                                        <div className="background-masker header-left"></div>
+                                        <div className="background-masker header-right"></div>
+                                        <div className="background-masker header-bottom"></div>
+                                        <div className="background-masker subheader-right"></div>
+                                        <div className="background-masker content-bottom"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

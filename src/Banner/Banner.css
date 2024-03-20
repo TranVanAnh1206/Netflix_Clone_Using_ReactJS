@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Great+Vibes&family=Lora&display=swap');
+
 h2,
 h1 {
     margin: 5px 0;
@@ -90,71 +92,7 @@ h1 {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* model */
-
-.model__wrapper {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 40px;
-    z-index: 100;
-    width: 850px;
-    background-color: #111;
-    color: #fff;
-}
-
-.model__movie--banner {
-    position: relative;
-    color: #fff;
-    width: 100%;
-}
-
-.img__wrapper {
-    width: 100%;
-}
-
-.img__wrapper img {
-    background-size: cover;
-    background-repeat: none;
-}
-
-.model__player {
-    position: absolute;
-    bottom: 50px;
-    left: 46px;
-}
-
-.model__player--title {
-    padding-bottom: 40px;
-    font-size: 37px;
-    font-weight: 400;
-}
-
-.model__play--btn {
-    padding: 5px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
-
-.model__movie--banner::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(180deg, transparent, #111);
-}
-
-.model__movie--info {
-    display: flex;
-    height: 700px;
-}
-
-/* ========================  */
+/* ======================== Preview Modal ================ */
 .previewModal-wrapper {
     position: fixed;
     top: 0px;
@@ -162,7 +100,6 @@ h1 {
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 1000px;
     background-color: rgba(1, 1, 1, 0.7);
     padding: 70px 0 0 0;
     color: #fff;
@@ -198,7 +135,10 @@ h1 {
     position: relative;
     width: 850px;
     background: #181818;
-    /* height: 500px; */
+    margin-bottom: 50px;
+    -webkit-box-shadow: 0px 2px 35px 18px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 0px 2px 35px 18px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 2px 35px 18px rgba(0, 0, 0, 0.68);
 }
 
 .previewModal-container img {
@@ -238,8 +178,16 @@ h1 {
 
 .previewModal-movie-info {
     display: block;
-    padding: 40px 0 50px 0;
-    margin-bottom: 100px;
+    padding: 40px 40px 20px 40px;
+    margin-bottom: 10px;
+}
+
+.preview-movie-genre {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    border-radius: 20px;
 }
 
 .previewAction {
@@ -266,8 +214,178 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
+}
+
+.actionBtn-title {
+    position: absolute;
+    width: 180px;
+    background-color: #fff;
+    color: #111;
+    padding: 3px 5px;
+    top: -42px;
+    border-radius: 5px;
+    display: none;
+    border: 1px solid transparent;
+    transition: all 2s ease;
+    animation: actionBtn-title-animate 0.3s ease-in;
+}
+
+@keyframes actionBtn-title-animate {
+    0% {
+        opacity: 0;
+        top: -30px;
+    }
+    100% {
+        opacity: 1;
+        top: -42px;
+    }
+}
+
+.actionBtn-title::after {
+    content: '';
+    border-color: #fff transparent transparent transparent;
+    border-width: 10px 14px;
+    border-style: solid;
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.previewAction-btn:hover .actionBtn-title {
+    display: inline-block;
 }
 
 .previewAction-btn:hover {
     border: 2px solid #fff;
+}
+
+.preview-movie-name {
+    margin: 15px 0;
+    font-weight: 400;
+    font-size: 38px;
+    letter-spacing: 2px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.preview-movie-desc {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    padding-top: 10px;
+    grid-gap: 26px;
+}
+
+.preview-movie-subdesc p {
+    padding: 4px 0;
+}
+
+.preview-movie-subdesc p:first-child {
+    padding-top: 0;
+}
+
+/* ================ The same movie ================ */
+.preview-same-movie {
+    padding: 40px 35px 20px 35px;
+}
+
+.preview-same-movie h3 {
+    font-size: 25px;
+    font-weight: 400;
+    padding-bottom: 25px;
+}
+
+.preview-same-movie-content {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.preview-same-movie-content .img-wrap {
+    width: 100%;
+    background-color: #494949;
+}
+
+.preview-same-movie-content .same-movie-item {
+    height: 356px;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+/* ================ loading timline ================ */
+
+.timeline-item {
+    border-radius: 5px;
+    position: relative;
+    opacity: 0.5;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #c6c6c6 8%, #b1b1b1 18%, #c6c6c6 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+/* // Styles chung cho các lớp mặt nạ */
+.background-masker {
+    background: #ececec;
+    position: absolute;
+}
+
+.background-masker.header-top {
+    top: 134px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+}
+
+.background-masker.header-bottom {
+    top: 196px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+}
+
+.background-masker.header-left {
+    top: 150px;
+    left: 0;
+    width: 16px;
+    height: 206px;
+}
+
+.background-masker.header-right {
+    top: 150px;
+    right: 0;
+    width: 16px;
+    height: 206px;
+}
+
+.background-masker.content-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+}
+
+.background-masker.subheader-right {
+    top: 150px;
+    right: 55px;
+    width: 64px;
+    height: 50px;
 }

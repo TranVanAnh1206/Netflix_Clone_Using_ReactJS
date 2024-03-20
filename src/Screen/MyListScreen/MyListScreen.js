@@ -12,7 +12,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Nav from '../../Header/Nav';
 import Footer from '../../Footer/Footer';
 import './MyListScreen.css';
-import { ReadDataFromRealtimeDatabase } from '../../firebase';
+import { DeleteDataFromRealtimeDatabase, FindData, ReadDataFromRealtimeDatabase } from '../../firebase';
 
 function MyListScreen() {
     const [isEmpty, setIsEmpty] = useState(true);
@@ -43,15 +43,29 @@ function MyListScreen() {
         fetchData();
     }, []);
 
+    console.log(myList);
+
     useEffect(() => {
         const timerLoading = setTimeout(() => {
             setIsLoading(false);
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(timerLoading);
     }, []);
 
-    console.log(myList);
+    // console.log(myList);
+
+    const HandleRemoveToDB = (movie) => {
+        const currentUser = JSON.parse(localStorage.getItem('User'));
+
+        const readFromDB = ReadDataFromRealtimeDatabase('watch_later', currentUser.user.uid, 'movies');
+
+        // console.log(Object.keys(readFromDB));
+
+        // DeleteDataFromRealtimeDatabase(`watch_later/${currentUser.user.uid}/movies`);
+
+        alert('Đã xóa.');
+    };
 
     return (
         <div className="myListScreen">
@@ -95,7 +109,19 @@ function MyListScreen() {
                                                     src={`${img_Base_Url}${movie.backdrop_path}`}
                                                     lt={`Đây là hình ảnh của bộ phim ${movie_Name}`}
                                                 />
-                                                <h3>{movie_Name}</h3>
+                                                {/* <h3>{movie_Name}</h3> */}
+
+                                                <div className="watchlater-action">
+                                                    <span className="move-movie">
+                                                        <i class="fa-solid fa-play"></i>
+                                                    </span>
+                                                    <span
+                                                        onClick={() => HandleRemoveToDB(movie)}
+                                                        className="move-movie"
+                                                    >
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </span>
+                                                </div>
                                             </div>
                                         );
                                     })}

@@ -22,16 +22,16 @@
 
 /* Containner Row */
 .row-wrapper {
-    --width-row-wrapper: 98.7vw;
-    --width-slider-mark: calc(var(--width-row-wrapper) - 8%);
+    /* --width-row-wrapper: 98.7vw; */
+    /* --width-slider-mark: calc(var(--width-row-wrapper) - 8%); */
     --width-film-poster-parrent: 1168px;
-    --width-handle-next-prev: 4%;
+    --width-handle-next-prev: 50px;
 
     position: relative;
     margin: 32px 0;
     background-color: transparent;
     color: #fff;
-    width: var(--width-row-wrapper);
+    /* width: var(--width-row-wrapper); */
     transition: transform 0.54s cubic-bezier(0.5, 0, 0.1, 1) 0s;
 }
 
@@ -45,7 +45,7 @@
 .row-wrapper .row-container {
     position: relative;
     z-index: 0;
-    width: var(--width-row-wrapper);
+    /* width: var(--width-row-wrapper); */
     background-color: transparent;
 }
 
@@ -59,7 +59,7 @@
     margin: 0;
     background-color: transparent;
     padding: 0 var(--width-handle-next-prev);
-    width: var(--width-row-wrapper);
+    /* width: var(--width-row-wrapper); */
     transition: transform 0.54s cubic-bezier(0.5, 0, 0.1, 1) 0s;
 }
 .row-wrapper .row-container .row-slider.show-peek {
@@ -126,7 +126,7 @@
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-    width: var(--width-slider-mark);
+    /* width: var(--width-slider-mark); */
     transition: transform 0.54s cubic-bezier(0.5, 0, 0.1, 1) 0s;
 }
 
@@ -141,9 +141,8 @@
     transition: transform 0.54s cubic-bezier(0.5, 0, 0.1, 1) 0s;
 }
 
-.movie__item:hover {
-    transform: scale(1.08);
-    z-index: 100;
+.movie__item:hover .action__box {
+    display: block;
 }
 
 .movie__item .movie__img {
@@ -157,17 +156,40 @@
 }
 
 /* ================ Action box ============= */
+.action__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease;
+    background: rgba(3, 3, 3, 0.5);
+}
 
 .action {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
-.action span {
-    display: inline-block;
+.action .action-item {
+    /* display: inline-block; */
+    cursor: pointer;
+    margin: 0 10px;
 }
 
-.add-to-my-list {
+/* .add-to-my-list {
     margin: 0 20px;
+} */
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline-block;
 }

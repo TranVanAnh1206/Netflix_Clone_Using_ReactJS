@@ -6,6 +6,7 @@ import {
     signInWithPopup,
     FacebookAuthProvider,
 } from 'firebase/auth';
+import 'firebase/database';
 import { getFirestore } from 'firebase/firestore';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { getDatabase, onValue, child, push, ref, set, update, remove, get } from 'firebase/database';
@@ -108,6 +109,10 @@ const DeleteDataFromRealtimeDatabase = (path) => {
         });
 };
 
+const FindData = (path, id) => {};
+
+// ======================
+
 // Đăng nhập bằng Google
 const GG_Provider = new GoogleAuthProvider();
 // GG_provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
@@ -187,5 +192,6 @@ export {
     ReadDataFromRealtimeDatabase,
     UpdateDataToRealtimeDatabase,
     DeleteDataFromRealtimeDatabase,
+    FindData,
 };
 export default db;

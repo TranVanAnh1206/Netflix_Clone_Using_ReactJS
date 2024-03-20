@@ -26,6 +26,14 @@ const requests = {
     fetchAllMovies: `/discover/movie?api_key=${API_KEY}`,
 
     GenresList: `/genre/movie/list?api_key=${API_KEY}`,
+
+    // genre = 16 : Phim hoạt hình
+    //https://api.themoviedb.org/3/discover/movie?api_key=900f62974efe56ae3058a8cc053e0885&with_genres=16&page=2
+    //https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=16&page=${page}
+
+    // Tập phim
+    // https://api.themoviedb.org/3/tv/12345/season/1?api_key=900f62974efe56ae3058a8cc053e0885
+    // https://api.themoviedb.org/3/tv/${tvId}/season/${seasonNumber}?api_key=${apiKey}
 };
 
 export default requests;
